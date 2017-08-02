@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xofz.Recipes98", "xofz.Recipes2k\xofz.Recipes98.csproj", "{626167ED-3372-4B4E-8594-8045E86F0D5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xofz.Recipes98", "xofz.Recipes98\xofz.Recipes98.csproj", "{626167ED-3372-4B4E-8594-8045E86F0D5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
