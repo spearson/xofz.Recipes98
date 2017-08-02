@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k.UI.Forms
+﻿namespace xofz.Recipes98.UI.Forms
 {
     partial class FormMainUi
     {

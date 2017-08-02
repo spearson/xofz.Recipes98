@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k.UI
+﻿namespace xofz.Recipes98.UI
 {
     using xofz.UI;
 

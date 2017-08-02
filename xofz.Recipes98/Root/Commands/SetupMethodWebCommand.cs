@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k.Root.Commands
+﻿namespace xofz.Recipes98.Root.Commands
 {
     using xofz.Framework;
     using xofz.Presentation;

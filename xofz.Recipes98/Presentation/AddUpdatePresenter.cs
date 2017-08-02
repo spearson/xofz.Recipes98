@@ -1,11 +1,11 @@
-﻿namespace xofz.Recipes2k.Presentation
+﻿namespace xofz.Recipes98.Presentation
 {
     using System;
     using System.Threading;
     using xofz.Framework;
     using xofz.Presentation;
-    using xofz.Recipes2k.Framework;
-    using xofz.Recipes2k.UI;
+    using xofz.Recipes98.Framework;
+    using xofz.Recipes98.UI;
     using xofz.UI;
 
     public sealed class AddUpdatePresenter : Presenter

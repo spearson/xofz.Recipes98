@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k.Framework
+﻿namespace xofz.Recipes98.Framework
 {
     using System.Collections.Generic;
     using System.IO;

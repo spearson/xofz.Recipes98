@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k.Root
+﻿namespace xofz.Recipes98.Root
 {
     using System;
     using System.Reflection;
@@ -16,7 +16,7 @@
             var bootstrapper = new FormsBootstrapper();
             bootstrapper.Bootstrap();
 
-            Application.Run(bootstrapper.MainForm);
+            Application.Run(bootstrapper.Shell);
         }
 
         private static Assembly loadEmbeddedAssembly(string name)

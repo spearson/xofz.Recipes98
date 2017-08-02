@@ -1,4 +1,4 @@
-﻿namespace xofz.Recipes2k
+﻿namespace xofz.Recipes98
 {
     public class Recipe
     {

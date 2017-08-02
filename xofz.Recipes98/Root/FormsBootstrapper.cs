@@ -1,15 +1,12 @@
-﻿namespace xofz.Recipes2k.Root
+﻿namespace xofz.Recipes98.Root
 {
-    using System;
     using System.Threading;
     using System.Windows.Forms;
-    using xofz.Framework;
-    using xofz.Framework.Implementation;
     using xofz.Framework.Materialization;
     using xofz.Presentation;
-    using xofz.Recipes2k.Presentation;
-    using xofz.Recipes2k.Root.Commands;
-    using xofz.Recipes2k.UI.Forms;
+    using xofz.Recipes98.Presentation;
+    using xofz.Recipes98.Root.Commands;
+    using xofz.Recipes98.UI.Forms;
     using xofz.Root;
     using xofz.Root.Commands;
     using xofz.UI;
@@ -27,7 +24,7 @@
             this.executor = executor;
         }
 
-        public virtual Form MainForm => this.mainForm;
+        public virtual Form Shell => this.shell;
 
         public virtual void Bootstrap()
         {
@@ -36,66 +33,56 @@
                 return;
             }
 
-            this.setMainForm(new FormMainUi());
-            var mf = this.mainForm;
+            this.setShell(new FormMainUi());
+            var s = this.shell;
             var e = this.executor;
-            Messenger fm = new FormsMessenger { Subscriber = mf };
+            Messenger fm = new FormsMessenger { Subscriber = s };
+            e.Execute(new SetupMethodWebCommand(
+                fm));
+            var w = e.Get<SetupMethodWebCommand>().Web;
 
-            try
-            {
+            e
+                .Execute(new SetupMainCommand(
+                    s,
+                    w))
+                .Execute(new SetupShutdownCommand(
+                    s,
+                    w))
+                .Execute(new SetupNavCommand(
+                    s.NavUi,
+                    s,
+                    w))
+                .Execute(new SetupAddUpdateCommand(
+                    new UserControlAddUpdateUi(
+                        new LinkedListMaterializer()),
+                    s,
+                    w))
+                .Execute(new SetupRecipesCommand(
+                    new UserControlRecipesUi(
+                        new LinkedListMaterializer()),
+                    s,
+                    w))
+                .Execute(new SetupLogCommand(
+                    new UserControlLogUi(
+                        new LinkedListMaterializer()),
+                    s,
+                    new FormLogEditorUi(
+                        s,
+                        new LinkedListMaterializer()),
+                    new FormLogStatisticsUi(
+                        s),
+                    w));
 
-
-                e.Execute(new SetupMethodWebCommand(
-                    fm));
-                var w = e.Get<SetupMethodWebCommand>().Web;
-
-                e
-                    .Execute(new SetupMainCommand(
-                        mf,
-                        w))
-                    .Execute(new SetupShutdownCommand(
-                        mf,
-                        w))
-                    .Execute(new SetupNavCommand(
-                        mf.NavUi,
-                        mf,
-                        w))
-                    .Execute(new SetupAddUpdateCommand(
-                        new UserControlAddUpdateUi(
-                            new LinkedListMaterializer()),
-                        mf,
-                        w))
-                    .Execute(new SetupRecipesCommand(
-                        new UserControlRecipesUi(
-                            new LinkedListMaterializer()),
-                        mf,
-                        w))
-                    .Execute(new SetupLogCommand(
-                        new UserControlLogUi(
-                            new LinkedListMaterializer()),
-                        mf,
-                        new FormLogEditorUi(
-                            mf,
-                            new LinkedListMaterializer()),
-                        w));
-
-                w.Run<Navigator>(n => n.Present<RecipesPresenter>());
-            }
-            catch (Exception ex)
-            {
-                var log = new TextFileLog("Exceptions.log");
-                LogHelpers.AddEntry(log, ex);
-                fm.GiveError("Error bootstrapping");
-            }
+            w.Run<Navigator>(n => n.Present<RecipesPresenter>());
         }
 
-        private void setMainForm(FormMainUi mainForm)
+        private void setShell(FormMainUi shell)
         {
-            this.mainForm = mainForm;
+            this.shell = shell;
         }
 
         private int bootstrappedIf1;
-        private FormMainUi mainForm;
+        private FormMainUi shell;
         private readonly CommandExecutor executor;
     }
 }
