@@ -1415,6 +1415,7 @@
             this.lookupNameTextBox.Name = "lookupNameTextBox";
             this.lookupNameTextBox.Size = new System.Drawing.Size(352, 22);
             this.lookupNameTextBox.TabIndex = 44;
+            this.lookupNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lookupNameTextBox_KeyPress);
             // 
             // editKey
             // 

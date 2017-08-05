@@ -806,6 +806,11 @@
                 foreach (var textBox in
                     MEHelpers.PrivateFieldsOfType<TextBox>(this))
                 {
+                    if (textBox.Name == "lookupNameTextBox")
+                    {
+                        continue;
+                    }
+
                     textBox.ReadOnly = !value;
                 }
             }
@@ -829,6 +834,14 @@
         private void resetKey_Click(object sender, EventArgs e)
         {
             new Thread(() => this.ResetKeyTapped?.Invoke()).Start();
+        }
+
+        private void lookupNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                new Thread(() => this.LookupKeyTapped?.Invoke()).Start();
+            }
         }
 
         private readonly Materializer materializer;

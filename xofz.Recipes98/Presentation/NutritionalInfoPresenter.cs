@@ -38,6 +38,7 @@
                     this.ui.EditKeyEnabled = false;
                     this.ui.SaveKeyEnabled = false;
                     this.ui.Editable = false;
+                    this.ui.Info = null;
                 });
             this.ui.WriteFinished.WaitOne();
 
