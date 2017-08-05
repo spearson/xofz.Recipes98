@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.nutritionalInfoColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recipesGrid)).BeginInit();
@@ -83,7 +85,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 414);
+            this.groupBox1.Size = new System.Drawing.Size(242, 407);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Recipes";
@@ -96,7 +98,7 @@
             this.clearSearchKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.clearSearchKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearSearchKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearSearchKey.Location = new System.Drawing.Point(150, 378);
+            this.clearSearchKey.Location = new System.Drawing.Point(111, 369);
             this.clearSearchKey.Name = "clearSearchKey";
             this.clearSearchKey.Size = new System.Drawing.Size(125, 32);
             this.clearSearchKey.TabIndex = 9;
@@ -110,7 +112,7 @@
             this.directionsSearchTextBox.Location = new System.Drawing.Point(6, 273);
             this.directionsSearchTextBox.Multiline = true;
             this.directionsSearchTextBox.Name = "directionsSearchTextBox";
-            this.directionsSearchTextBox.Size = new System.Drawing.Size(267, 90);
+            this.directionsSearchTextBox.Size = new System.Drawing.Size(230, 90);
             this.directionsSearchTextBox.TabIndex = 8;
             this.directionsSearchTextBox.TextChanged += new System.EventHandler(this.directionsSearchTextBox_TextChanged);
             // 
@@ -127,10 +129,10 @@
             // ingredientsSearchTextBox
             // 
             this.ingredientsSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingredientsSearchTextBox.Location = new System.Drawing.Point(10, 157);
+            this.ingredientsSearchTextBox.Location = new System.Drawing.Point(6, 157);
             this.ingredientsSearchTextBox.Multiline = true;
             this.ingredientsSearchTextBox.Name = "ingredientsSearchTextBox";
-            this.ingredientsSearchTextBox.Size = new System.Drawing.Size(263, 90);
+            this.ingredientsSearchTextBox.Size = new System.Drawing.Size(230, 90);
             this.ingredientsSearchTextBox.TabIndex = 6;
             this.ingredientsSearchTextBox.TextChanged += new System.EventHandler(this.ingredientsSearchTextBox_TextChanged);
             // 
@@ -147,9 +149,9 @@
             // descriptionSearchTextBox
             // 
             this.descriptionSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionSearchTextBox.Location = new System.Drawing.Point(10, 105);
+            this.descriptionSearchTextBox.Location = new System.Drawing.Point(6, 105);
             this.descriptionSearchTextBox.Name = "descriptionSearchTextBox";
-            this.descriptionSearchTextBox.Size = new System.Drawing.Size(263, 26);
+            this.descriptionSearchTextBox.Size = new System.Drawing.Size(230, 26);
             this.descriptionSearchTextBox.TabIndex = 4;
             this.descriptionSearchTextBox.TextChanged += new System.EventHandler(this.descriptionSearchTextBox_TextChanged);
             // 
@@ -166,9 +168,9 @@
             // nameSearchTextBox
             // 
             this.nameSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameSearchTextBox.Location = new System.Drawing.Point(10, 53);
+            this.nameSearchTextBox.Location = new System.Drawing.Point(6, 53);
             this.nameSearchTextBox.Name = "nameSearchTextBox";
-            this.nameSearchTextBox.Size = new System.Drawing.Size(263, 26);
+            this.nameSearchTextBox.Size = new System.Drawing.Size(230, 26);
             this.nameSearchTextBox.TabIndex = 2;
             this.nameSearchTextBox.TextChanged += new System.EventHandler(this.nameSearchTextBox_TextChanged);
             // 
@@ -180,52 +182,71 @@
             this.nameColumn,
             this.descriptionColumn,
             this.openColumn,
+            this.nutritionalInfoColumn,
             this.deleteColumn});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.recipesGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.recipesGrid.Location = new System.Drawing.Point(295, 0);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.recipesGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.recipesGrid.Dock = System.Windows.Forms.DockStyle.Right;
+            this.recipesGrid.Location = new System.Drawing.Point(255, 0);
             this.recipesGrid.Margin = new System.Windows.Forms.Padding(0);
             this.recipesGrid.MultiSelect = false;
             this.recipesGrid.Name = "recipesGrid";
             this.recipesGrid.ReadOnly = true;
             this.recipesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.recipesGrid.Size = new System.Drawing.Size(589, 511);
+            this.recipesGrid.Size = new System.Drawing.Size(753, 511);
             this.recipesGrid.TabIndex = 4;
             this.recipesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.recipesGrid_CellClick);
             // 
             // nameColumn
             // 
+            this.nameColumn.Frozen = true;
             this.nameColumn.HeaderText = "Name";
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 175;
+            this.nameColumn.Width = 191;
             // 
             // descriptionColumn
             // 
+            this.descriptionColumn.Frozen = true;
             this.descriptionColumn.HeaderText = "Description";
             this.descriptionColumn.Name = "descriptionColumn";
             this.descriptionColumn.ReadOnly = true;
-            this.descriptionColumn.Width = 300;
+            this.descriptionColumn.Width = 211;
             // 
             // openColumn
             // 
             this.openColumn.HeaderText = "Open";
             this.openColumn.Name = "openColumn";
             this.openColumn.ReadOnly = true;
-            this.openColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.openColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.openColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.openColumn.Width = 99;
+            // 
+            // nutritionalInfoColumn
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nutritionalInfoColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.nutritionalInfoColumn.HeaderText = "Nut.\'l Info";
+            this.nutritionalInfoColumn.Name = "nutritionalInfoColumn";
+            this.nutritionalInfoColumn.ReadOnly = true;
+            this.nutritionalInfoColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nutritionalInfoColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.nutritionalInfoColumn.Width = 110;
             // 
             // deleteColumn
             // 
             this.deleteColumn.HeaderText = "Delete";
             this.deleteColumn.Name = "deleteColumn";
             this.deleteColumn.ReadOnly = true;
+            this.deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteColumn.Width = 99;
             // 
             // UserControlRecipesUi
             // 
@@ -235,7 +256,7 @@
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserControlRecipesUi";
-            this.Size = new System.Drawing.Size(884, 511);
+            this.Size = new System.Drawing.Size(1008, 511);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recipesGrid)).EndInit();
@@ -261,6 +282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionColumn;
         private System.Windows.Forms.DataGridViewButtonColumn openColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn nutritionalInfoColumn;
         private System.Windows.Forms.DataGridViewButtonColumn deleteColumn;
     }
 }

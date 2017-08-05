@@ -57,6 +57,11 @@
                         new LinkedListMaterializer()),
                     s,
                     w))
+                .Execute(new SetupNutritionalInfoCommand(
+                    new UserControlNutritionalInfoUi(
+                        new LinkedListMaterializer()),
+                    s,
+                    w))
                 .Execute(new SetupRecipesCommand(
                     new UserControlRecipesUi(
                         new LinkedListMaterializer()),

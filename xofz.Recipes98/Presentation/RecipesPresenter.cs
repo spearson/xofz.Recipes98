@@ -32,6 +32,7 @@
             this.ui.ClearSearchKeyTapped += this.ui_ClearSearchKeyTapped;
             this.ui.OpenRequested += this.ui_OpenRequested;
             this.ui.DeleteRequested += this.ui_DeleteRequested;
+            this.ui.NutlInfoRequested += this.ui_NutlInfoRequested;
             this.web.Run<RecipeLoader>(loader =>
             {
                 var recipes = loader.All();
@@ -50,7 +51,7 @@
             UiHelpers.Write(
                 addUi,
                 () => addUi.RecipeToAddUpdate
-                    = new Recipe { Name = recipeName });
+                    = new Recipe(recipeName));
             w.Run<EventRaiser>(er => er.Raise(addUi, "LookupKeyTapped"));
 
             w.Run<Navigator>(n => n.Present<AddUpdatePresenter>());
@@ -80,6 +81,20 @@
                     }));
                 this.ui_SearchTextChanged();
             }
+        }
+
+        private void ui_NutlInfoRequested(string recipeName)
+        {
+            var w = this.web;
+            var nutlInfoUi = w.Run<Navigator, NutritionalInfoUi>(
+                n => n.GetUi<NutritionalInfoPresenter, NutritionalInfoUi>());
+            UiHelpers.Write(
+                nutlInfoUi,
+                () => nutlInfoUi.LookupRecipeName
+                    = recipeName);
+            w.Run<EventRaiser>(er => er.Raise(nutlInfoUi, "LookupKeyTapped"));
+
+            w.Run<Navigator>(n => n.Present<NutritionalInfoPresenter>());
         }
 
         private void ui_ClearSearchKeyTapped()

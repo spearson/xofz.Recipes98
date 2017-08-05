@@ -2,7 +2,12 @@
 {
     public class Recipe
     {
-        public virtual string Name { get; set; }
+        public Recipe(string name = null)
+        {
+            this.Name = name;
+        }
+
+        public virtual string Name { get; }
 
         public virtual string Description { get; set; }
 
@@ -10,10 +15,7 @@
 
         public virtual MaterializedEnumerable<string> Directions { get; set; }
 
-        public override int GetHashCode()
-        {
-            return 0;
-        }
+        public virtual NutritionalInfo NutritionalInfo { get; set; }
 
         public override bool Equals(object other)
         {
@@ -24,6 +26,16 @@
 
             var otherRecipe = (Recipe)other;
             return this.Name == otherRecipe.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            if (this.Name == default(string))
+            {
+                return 0;
+            }
+
+            return this.Name.GetHashCode();
         }
     }
 }

@@ -15,6 +15,8 @@
 
         public event Action AddKeyTapped;
 
+        public event Action NutlInfoKeyTapped;
+
         public event Action LogKeyTapped;
 
         public event Action ExitKeyTapped;
@@ -29,14 +31,19 @@
             new Thread(() => this.AddKeyTapped?.Invoke()).Start();
         }
 
-        private void exitKey_Click(object sender, EventArgs e)
+        private void nutlInfoKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.ExitKeyTapped?.Invoke()).Start();
+            new Thread(() => this.NutlInfoKeyTapped?.Invoke()).Start();
         }
 
         private void logKey_Click(object sender, EventArgs e)
         {
             new Thread(() => this.LogKeyTapped?.Invoke()).Start();
+        }
+
+        private void exitKey_Click(object sender, EventArgs e)
+        {
+            new Thread(() => this.ExitKeyTapped?.Invoke()).Start();
         }
     }
 }

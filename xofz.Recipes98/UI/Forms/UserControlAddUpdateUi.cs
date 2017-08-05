@@ -24,9 +24,8 @@
             get
             {
                 var m = this.materializer;
-                return new Recipe
+                return new Recipe(this.nameTextBox.Text)
                 {
-                    Name = this.nameTextBox.Text,
                     Description = this.descriptionTextBox.Text,
                     Ingredients = m.Materialize(this.ingredientsTextBox.Lines),
                     Directions = m.Materialize(this.directionsTextBox.Lines)

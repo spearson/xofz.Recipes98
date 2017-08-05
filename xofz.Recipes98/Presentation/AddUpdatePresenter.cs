@@ -38,16 +38,7 @@
         {
             var w = this.web;
             var recipe = UiHelpers.Read(this.ui, () => this.ui.RecipeToAddUpdate);
-            var allWhitespace = true;
-            foreach (var c in recipe.Name)
-            {
-                if (!char.IsWhiteSpace(c))
-                {
-                    allWhitespace = false;
-                }
-            }
-
-            if (string.IsNullOrEmpty(recipe.Name) || allWhitespace)
+            if (StringHelpers.NullOrWhiteSpace(recipe.Name))
             {
                 w.Run<Messenger>(
                     m => UiHelpers.Write(
@@ -124,7 +115,7 @@
             var recipe = w.Run<RecipeLoader, Recipe>(loader =>
             {
                 var recipes = loader.All();
-                var match = default(Recipe);
+                Recipe match = null;
                 foreach (var r in recipes)
                 {
                     if (string.Equals(
@@ -140,7 +131,7 @@
                 return match;
             });
 
-            if (recipe != default(Recipe))
+            if (recipe != null)
             {
                 UiHelpers.Write(this.ui, () => this.ui.RecipeToAddUpdate = recipe);
             }

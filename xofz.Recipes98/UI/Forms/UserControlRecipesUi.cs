@@ -22,6 +22,8 @@
 
         public event Action<string> OpenRequested;
 
+        public event Action<string> NutlInfoRequested;
+
         public event Action<string> DeleteRequested;
         
         string RecipesUi.NameSearchText
@@ -61,14 +63,15 @@
                 foreach (DataGridViewRow row in this.recipesGrid.Rows)
                 {
                     ll.AddLast(
-                        new Recipe
+                        new Recipe(row.Cells[0].ToString())
                         {
-                            Name = row.Cells[0].ToString(),
                             Description = row.Cells[1].ToString(),
                             Directions = m.Materialize(
-                                row.Cells[2].ToString().Split(
-                                    new[] { Environment.NewLine },
-                                    StringSplitOptions.RemoveEmptyEntries))
+                                row.Cells[2]
+                                    .ToString()
+                                    .Split(
+                                        new[] { Environment.NewLine },
+                                        StringSplitOptions.RemoveEmptyEntries))
                         });
                 }
 
@@ -77,12 +80,25 @@
 
             set
             {
-                this.recipesGrid.Rows.Clear();
+                var rg = this.recipesGrid;
+                rg.Rows.Clear();
                 foreach (var recipe in value)
                 {
-                    this.recipesGrid.Rows.Add(
+                    rg.Rows.Add(
                         recipe.Name,
                         recipe.Description);
+                    var calories = (recipe
+                        .NutritionalInfo
+                        ?.Calories)
+                        ?.ToString();
+                    if (!StringHelpers.NullOrWhiteSpace(calories))
+                    {
+                        var c = rg.Rows[rg.Rows.Count - 2].Cells[3];
+                        c.Value
+                            = calories + " Calories";
+                        c.ToolTipText
+                            = calories + " Calories Per Serving";
+                    }
                 }
             }
         }
@@ -126,15 +142,18 @@
                 }
 
                 var buttonType = rg.Columns[e.ColumnIndex].HeaderText;
-                if (buttonType == "Open")
+                switch (buttonType)
                 {
-                    new Thread(() => this.OpenRequested?.Invoke(recipeName)).Start();
+                    case "Open":
+                        new Thread(() => this.OpenRequested?.Invoke(recipeName)).Start();
+                        break;
+                    case "Delete":
+                        new Thread(() => this.DeleteRequested?.Invoke(recipeName)).Start();
+                        break;
+                    case "Nut.'l Info":
+                        new Thread(() => this.NutlInfoRequested?.Invoke(recipeName)).Start();
+                        break;
                 }
-                else
-                {
-                    new Thread(() => this.DeleteRequested?.Invoke(recipeName)).Start();
-                }
-                
             }
         }
 

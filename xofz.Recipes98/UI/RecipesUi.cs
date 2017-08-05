@@ -11,6 +11,8 @@
 
         event Action<string> OpenRequested;
 
+        event Action<string> NutlInfoRequested;
+
         event Action<string> DeleteRequested;
 
         string NameSearchText { get; set; }

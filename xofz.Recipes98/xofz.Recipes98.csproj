@@ -42,14 +42,18 @@
     <Compile Include="Framework\RecipeLoader.cs" />
     <Compile Include="Framework\RecipeManager.cs" />
     <Compile Include="Framework\RecipeSaver.cs" />
+    <Compile Include="NutritionalInfo.cs" />
+    <Compile Include="NutritionItem.cs" />
     <Compile Include="Presentation\AddUpdatePresenter.cs" />
     <Compile Include="Presentation\NavPresenter.cs" />
+    <Compile Include="Presentation\NutritionalInfoPresenter.cs" />
     <Compile Include="Presentation\RecipesPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Root\Commands\SetupAddUpdateCommand.cs" />
     <Compile Include="Root\Commands\SetupMethodWebCommand.cs" />
     <Compile Include="Root\Commands\SetupNavCommand.cs" />
+    <Compile Include="Root\Commands\SetupNutritionalInfoCommand.cs" />
     <Compile Include="Root\Commands\SetupRecipesCommand.cs" />
     <Compile Include="Root\EntryPoint.cs" />
     <Compile Include="Root\FormsBootstrapper.cs" />
@@ -72,6 +76,12 @@
     <Compile Include="UI\Forms\UserControlNavUi.Designer.cs">
       <DependentUpon>UserControlNavUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\UserControlNutritionalInfoUi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\UserControlNutritionalInfoUi.Designer.cs">
+      <DependentUpon>UserControlNutritionalInfoUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\UserControlRecipesUi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,6 +89,7 @@
       <DependentUpon>UserControlRecipesUi.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\NavUi.cs" />
+    <Compile Include="UI\NutritionalInfoUi.cs" />
     <Compile Include="UI\RecipesUi.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserControlNavUi.resx">
       <DependentUpon>UserControlNavUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\UserControlNutritionalInfoUi.resx">
+      <DependentUpon>UserControlNutritionalInfoUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserControlRecipesUi.resx">
       <DependentUpon>UserControlRecipesUi.cs</DependentUpon>

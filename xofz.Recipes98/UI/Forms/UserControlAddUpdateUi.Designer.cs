@@ -84,7 +84,7 @@
             this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionTextBox.Location = new System.Drawing.Point(133, 93);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(604, 22);
+            this.descriptionTextBox.Size = new System.Drawing.Size(728, 22);
             this.descriptionTextBox.TabIndex = 4;
             // 
             // ingredientsTextBox
@@ -94,7 +94,7 @@
             this.ingredientsTextBox.Multiline = true;
             this.ingredientsTextBox.Name = "ingredientsTextBox";
             this.ingredientsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.ingredientsTextBox.Size = new System.Drawing.Size(604, 179);
+            this.ingredientsTextBox.Size = new System.Drawing.Size(728, 179);
             this.ingredientsTextBox.TabIndex = 6;
             // 
             // label4
@@ -113,7 +113,7 @@
             this.directionsTextBox.Multiline = true;
             this.directionsTextBox.Name = "directionsTextBox";
             this.directionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.directionsTextBox.Size = new System.Drawing.Size(604, 205);
+            this.directionsTextBox.Size = new System.Drawing.Size(728, 205);
             this.directionsTextBox.TabIndex = 8;
             // 
             // label5
@@ -132,7 +132,7 @@
             this.resetKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.resetKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.resetKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetKey.Location = new System.Drawing.Point(743, 306);
+            this.resetKey.Location = new System.Drawing.Point(867, 306);
             this.resetKey.Name = "resetKey";
             this.resetKey.Size = new System.Drawing.Size(69, 32);
             this.resetKey.TabIndex = 9;
@@ -147,7 +147,7 @@
             this.addUpdateKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.addUpdateKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.addUpdateKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addUpdateKey.Location = new System.Drawing.Point(743, 479);
+            this.addUpdateKey.Location = new System.Drawing.Point(867, 476);
             this.addUpdateKey.Name = "addUpdateKey";
             this.addUpdateKey.Size = new System.Drawing.Size(138, 32);
             this.addUpdateKey.TabIndex = 10;
@@ -188,7 +188,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControlAddUpdateUi";
-            this.Size = new System.Drawing.Size(884, 511);
+            this.Size = new System.Drawing.Size(1008, 511);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.screenPanel = new System.Windows.Forms.Panel();
-            this.navUi = new UserControlNavUi();
+            this.navUi = new xofz.Recipes98.UI.Forms.UserControlNavUi();
             this.SuspendLayout();
             // 
             // screenPanel
@@ -38,22 +38,23 @@
             this.screenPanel.Location = new System.Drawing.Point(0, 50);
             this.screenPanel.Margin = new System.Windows.Forms.Padding(0);
             this.screenPanel.Name = "screenPanel";
-            this.screenPanel.Size = new System.Drawing.Size(884, 511);
+            this.screenPanel.Size = new System.Drawing.Size(1008, 511);
             this.screenPanel.TabIndex = 0;
             // 
             // navUi
             // 
+            this.navUi.Dock = System.Windows.Forms.DockStyle.Top;
             this.navUi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.navUi.Location = new System.Drawing.Point(0, 0);
             this.navUi.Margin = new System.Windows.Forms.Padding(0);
             this.navUi.Name = "navUi";
-            this.navUi.Size = new System.Drawing.Size(884, 50);
+            this.navUi.Size = new System.Drawing.Size(1008, 50);
             this.navUi.TabIndex = 1;
             // 
             // FormMainUi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 561);
             this.Controls.Add(this.navUi);
             this.Controls.Add(this.screenPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

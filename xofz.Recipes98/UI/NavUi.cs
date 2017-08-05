@@ -8,6 +8,8 @@
 
         event Action AddKeyTapped;
 
+        event Action NutlInfoKeyTapped;
+
         event Action LogKeyTapped;
 
         event Action ExitKeyTapped;

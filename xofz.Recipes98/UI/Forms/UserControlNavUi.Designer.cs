@@ -33,6 +33,7 @@
             this.exitKey = new System.Windows.Forms.Button();
             this.addKey = new System.Windows.Forms.Button();
             this.recipesKey = new System.Windows.Forms.Button();
+            this.nutlInfoKey = new System.Windows.Forms.Button();
             navPanel = new System.Windows.Forms.TableLayoutPanel();
             navPanel.SuspendLayout();
             this.SuspendLayout();
@@ -42,10 +43,11 @@
             navPanel.ColumnCount = 6;
             navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
-            navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             navPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            navPanel.Controls.Add(this.nutlInfoKey, 2, 0);
             navPanel.Controls.Add(this.logKey, 4, 0);
             navPanel.Controls.Add(this.exitKey, 5, 0);
             navPanel.Controls.Add(this.addKey, 1, 0);
@@ -55,7 +57,7 @@
             navPanel.Name = "navPanel";
             navPanel.RowCount = 1;
             navPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            navPanel.Size = new System.Drawing.Size(884, 50);
+            navPanel.Size = new System.Drawing.Size(1008, 50);
             navPanel.TabIndex = 0;
             // 
             // logKey
@@ -66,7 +68,7 @@
             this.logKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.logKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.logKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logKey.Location = new System.Drawing.Point(593, 3);
+            this.logKey.Location = new System.Drawing.Point(717, 3);
             this.logKey.Name = "logKey";
             this.logKey.Size = new System.Drawing.Size(141, 44);
             this.logKey.TabIndex = 6;
@@ -82,7 +84,7 @@
             this.exitKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.exitKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.exitKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitKey.Location = new System.Drawing.Point(740, 3);
+            this.exitKey.Location = new System.Drawing.Point(864, 3);
             this.exitKey.Name = "exitKey";
             this.exitKey.Size = new System.Drawing.Size(141, 44);
             this.exitKey.TabIndex = 5;
@@ -122,13 +124,29 @@
             this.recipesKey.UseVisualStyleBackColor = true;
             this.recipesKey.Click += new System.EventHandler(this.recipesKey_Click);
             // 
+            // nutlInfoKey
+            // 
+            this.nutlInfoKey.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nutlInfoKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.nutlInfoKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.nutlInfoKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nutlInfoKey.Location = new System.Drawing.Point(297, 3);
+            this.nutlInfoKey.Name = "nutlInfoKey";
+            this.nutlInfoKey.Size = new System.Drawing.Size(164, 44);
+            this.nutlInfoKey.TabIndex = 7;
+            this.nutlInfoKey.Text = "Nutritional Info";
+            this.nutlInfoKey.UseVisualStyleBackColor = true;
+            this.nutlInfoKey.Click += new System.EventHandler(this.nutlInfoKey_Click);
+            // 
             // UserControlNavUi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(navPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserControlNavUi";
-            this.Size = new System.Drawing.Size(884, 50);
+            this.Size = new System.Drawing.Size(1008, 50);
             navPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -140,5 +158,6 @@
         private System.Windows.Forms.Button recipesKey;
         private System.Windows.Forms.Button exitKey;
         private System.Windows.Forms.Button logKey;
+        private System.Windows.Forms.Button nutlInfoKey;
     }
 }
