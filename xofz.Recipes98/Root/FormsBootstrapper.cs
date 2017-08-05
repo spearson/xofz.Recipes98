@@ -1,7 +1,10 @@
 ﻿namespace xofz.Recipes98.Root
 {
+    using System;
     using System.Threading;
     using System.Windows.Forms;
+    using xofz.Framework;
+    using xofz.Framework.Implementation;
     using xofz.Framework.Materialization;
     using xofz.Presentation;
     using xofz.Recipes98.Presentation;
@@ -22,6 +25,8 @@
         public FormsBootstrapper(CommandExecutor executor)
         {
             this.executor = executor;
+            AppDomain.CurrentDomain.UnhandledException 
+                += this.handleUnhandledException;
         }
 
         public virtual Form Shell => this.shell;
@@ -84,6 +89,30 @@
         private void setShell(FormMainUi shell)
         {
             this.shell = shell;
+        }
+
+        private void handleUnhandledException(
+            object sender,
+            UnhandledExceptionEventArgs e)
+        {
+            var ex = e.ExceptionObject as Exception;
+            var exceptionLog = new TextFileLog("Exceptions.log");
+            if (ex == null)
+            {
+                exceptionLog.AddEntry(
+                    "Error",
+                    new[]
+                    {
+                        "An unhandled exception occurred, "
+                        + "but the exception did not derive "
+                        + "from System.Exception.",
+                        "Here is the exception's type: "
+                        + e.ExceptionObject.GetType()
+                    });
+                return;
+            }
+
+            LogHelpers.AddEntry(exceptionLog, ex);
         }
 
         private int bootstrappedIf1;
