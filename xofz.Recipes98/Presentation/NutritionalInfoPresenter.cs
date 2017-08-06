@@ -30,13 +30,14 @@
             this.ui.LookupKeyTapped += this.ui_LookupKeyTapped;
             this.ui.EditKeyTapped += this.ui_EditKeyTapped;
             this.ui.SaveKeyTapped += this.ui_SaveKeyTapped;
-            this.ui.ResetKeyTapped += this.ui_ResetKeyTapped;
+            this.ui.CancelKeyTapped += this.ui_CancelKeyTapped;
             UiHelpers.Write(
                 this.ui,
                 () =>
                 {
                     this.ui.EditKeyEnabled = false;
                     this.ui.SaveKeyEnabled = false;
+                    this.ui.CancelKeyEnabled = false;
                     this.ui.Editable = false;
                     this.ui.Info = null;
                 });
@@ -49,6 +50,22 @@
 
         private void ui_LookupKeyTapped()
         {
+            var w = this.web;
+            if (UiHelpers.Read(
+                this.ui,
+                () => this.ui.Editable))
+            {
+                var response = w.Run<Messenger, Response>(
+                    m => UiHelpers.Read(
+                        m.Subscriber,
+                        () => m.Question(
+                            "Discard current changes?")));
+                if (response == Response.No)
+                {
+                    return;
+                }
+            }
+
             UiHelpers.Write(
                 this.ui,
                 () =>
@@ -58,6 +75,7 @@
                     this.ui.Editable = false;
                     this.ui.EditKeyEnabled = false;
                     this.ui.SaveKeyEnabled = false;
+                    this.ui.CancelKeyEnabled = false;
                 });
 
             var recipeName = UiHelpers.Read(
@@ -110,6 +128,7 @@
                     this.ui.Editable = true;
                     this.ui.EditKeyEnabled = false;
                     this.ui.SaveKeyEnabled = true;
+                    this.ui.CancelKeyEnabled = true;
                 });
         }
 
@@ -151,8 +170,16 @@
                     m => UiHelpers.Write(
                         m.Subscriber,
                         () => m.GiveError(e.Message)));
+                this.finishSaving();
                 return;
             }
+
+            var rui = w.Run<Navigator, RecipesUi>(
+                n => n.GetUi<RecipesPresenter, RecipesUi>());
+            w.Run<EventRaiser>(er =>
+            {
+                er.Raise(rui, "SearchTextChanged");
+            });
 
             w.Run<Messenger>(m =>
                 UiHelpers.Write(m.Subscriber, () =>
@@ -166,15 +193,25 @@
                     + recipe.Name
                 }));
 
-            var rui = w.Run<Navigator, RecipesUi>(
-                n => n.GetUi<RecipesPresenter, RecipesUi>());
-            w.Run<EventRaiser>(er =>
-            {
-                er.Raise(rui, "SearchTextChanged");
-            });
+            this.finishSaving();
         }
 
-        private void ui_ResetKeyTapped()
+        private void finishSaving()
+        {
+            UiHelpers.Write(
+                this.ui,
+                () =>
+                {
+                    this.ui.CancelKeyEnabled = false;
+                    this.ui.SaveKeyEnabled = false;
+                    this.ui.Editable = false;
+                    this.ui.EditKeyEnabled = false;
+                    this.ui.Info = null;
+                    this.ui.MatchRecipeName = null;
+                });
+        }
+
+        private void ui_CancelKeyTapped()
         {
             var w = this.web;
             var response = Response.No;
@@ -182,7 +219,7 @@
             {
                 UiHelpers.Write(
                     m.Subscriber,
-                    () => response = m.Question("Really clear all fields?"));
+                    () => response = m.Question("Discard current changes?"));
                 m.Subscriber.WriteFinished.WaitOne();
             });
 
@@ -195,6 +232,7 @@
                     this.ui.SaveKeyEnabled = false;
                     this.ui.EditKeyEnabled = false;
                     this.ui.Editable = false;
+                    this.ui.CancelKeyEnabled = false;
                 });
             }
         }

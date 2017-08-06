@@ -154,7 +154,7 @@
             this.lookupNameTextBox = new System.Windows.Forms.TextBox();
             this.editKey = new System.Windows.Forms.Button();
             this.saveKey = new System.Windows.Forms.Button();
-            this.resetKey = new System.Windows.Forms.Button();
+            this.cancelKey = new System.Windows.Forms.Button();
             this.caloriesTextBox = new System.Windows.Forms.TextBox();
             this.fatCaloriesTextBox = new System.Windows.Forms.TextBox();
             this.fatSubItemsGroupBox.SuspendLayout();
@@ -169,7 +169,7 @@
             this.mainLabel.Location = new System.Drawing.Point(3, 0);
             this.mainLabel.Name = "mainLabel";
             this.mainLabel.Size = new System.Drawing.Size(644, 30);
-            this.mainLabel.TabIndex = 1;
+            this.mainLabel.TabIndex = 99;
             this.mainLabel.Text = "Nut.\' Info";
             // 
             // label3
@@ -179,7 +179,7 @@
             this.label3.Location = new System.Drawing.Point(68, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 99;
             this.label3.Text = "Calories:";
             // 
             // servingSizeTextBox
@@ -189,7 +189,7 @@
             this.servingSizeTextBox.Name = "servingSizeTextBox";
             this.servingSizeTextBox.ReadOnly = true;
             this.servingSizeTextBox.Size = new System.Drawing.Size(330, 31);
-            this.servingSizeTextBox.TabIndex = 6;
+            this.servingSizeTextBox.TabIndex = 0;
             // 
             // label4
             // 
@@ -198,7 +198,7 @@
             this.label4.Location = new System.Drawing.Point(15, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 20);
-            this.label4.TabIndex = 7;
+            this.label4.TabIndex = 99;
             this.label4.Text = "Serving size:";
             // 
             // label5
@@ -208,7 +208,7 @@
             this.label5.Location = new System.Drawing.Point(3, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 99;
             this.label5.Text = "Total servings:";
             // 
             // totalServingsTextBox
@@ -218,7 +218,7 @@
             this.totalServingsTextBox.Name = "totalServingsTextBox";
             this.totalServingsTextBox.ReadOnly = true;
             this.totalServingsTextBox.Size = new System.Drawing.Size(182, 31);
-            this.totalServingsTextBox.TabIndex = 8;
+            this.totalServingsTextBox.TabIndex = 1;
             // 
             // label6
             // 
@@ -227,7 +227,7 @@
             this.label6.Location = new System.Drawing.Point(61, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 20);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 99;
             this.label6.Text = "Total Fat:";
             // 
             // label10
@@ -237,7 +237,7 @@
             this.label10.Location = new System.Drawing.Point(3, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(134, 20);
-            this.label10.TabIndex = 18;
+            this.label10.TabIndex = 99;
             this.label10.Text = "Calories from Fat:";
             // 
             // label2
@@ -247,7 +247,7 @@
             this.label2.Location = new System.Drawing.Point(3, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 25);
-            this.label2.TabIndex = 20;
+            this.label2.TabIndex = 99;
             this.label2.Text = "Per Serving";
             // 
             // totalFatValueTextBox
@@ -257,7 +257,7 @@
             this.totalFatValueTextBox.Name = "totalFatValueTextBox";
             this.totalFatValueTextBox.ReadOnly = true;
             this.totalFatValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.totalFatValueTextBox.TabIndex = 21;
+            this.totalFatValueTextBox.TabIndex = 4;
             this.totalFatValueTextBox.Text = "99.9g";
             // 
             // fatSubItemsGroupBox
@@ -281,7 +281,7 @@
             this.fatSubItemsGroupBox.Location = new System.Drawing.Point(7, 257);
             this.fatSubItemsGroupBox.Name = "fatSubItemsGroupBox";
             this.fatSubItemsGroupBox.Size = new System.Drawing.Size(294, 135);
-            this.fatSubItemsGroupBox.TabIndex = 22;
+            this.fatSubItemsGroupBox.TabIndex = 6;
             this.fatSubItemsGroupBox.TabStop = false;
             this.fatSubItemsGroupBox.Text = "Fat Sub-Items";
             // 
@@ -292,7 +292,7 @@
             this.fatSubItem4ValueTextBox.Name = "fatSubItem4ValueTextBox";
             this.fatSubItem4ValueTextBox.ReadOnly = true;
             this.fatSubItem4ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.fatSubItem4ValueTextBox.TabIndex = 30;
+            this.fatSubItem4ValueTextBox.TabIndex = 12;
             this.fatSubItem4ValueTextBox.Text = "99.9g";
             // 
             // fatSubItem1PdvTextBox
@@ -302,7 +302,7 @@
             this.fatSubItem1PdvTextBox.Name = "fatSubItem1PdvTextBox";
             this.fatSubItem1PdvTextBox.ReadOnly = true;
             this.fatSubItem1PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.fatSubItem1PdvTextBox.TabIndex = 31;
+            this.fatSubItem1PdvTextBox.TabIndex = 7;
             this.fatSubItem1PdvTextBox.Text = "99 %";
             // 
             // fatSubItem3ValueTextBox
@@ -312,7 +312,7 @@
             this.fatSubItem3ValueTextBox.Name = "fatSubItem3ValueTextBox";
             this.fatSubItem3ValueTextBox.ReadOnly = true;
             this.fatSubItem3ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.fatSubItem3ValueTextBox.TabIndex = 29;
+            this.fatSubItem3ValueTextBox.TabIndex = 10;
             this.fatSubItem3ValueTextBox.Text = "99.9g";
             // 
             // fatSubItem2PdvTextBox
@@ -322,7 +322,7 @@
             this.fatSubItem2PdvTextBox.Name = "fatSubItem2PdvTextBox";
             this.fatSubItem2PdvTextBox.ReadOnly = true;
             this.fatSubItem2PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.fatSubItem2PdvTextBox.TabIndex = 32;
+            this.fatSubItem2PdvTextBox.TabIndex = 9;
             this.fatSubItem2PdvTextBox.Text = "99 %";
             // 
             // fatSubItem3PdvTextBox
@@ -332,7 +332,7 @@
             this.fatSubItem3PdvTextBox.Name = "fatSubItem3PdvTextBox";
             this.fatSubItem3PdvTextBox.ReadOnly = true;
             this.fatSubItem3PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.fatSubItem3PdvTextBox.TabIndex = 33;
+            this.fatSubItem3PdvTextBox.TabIndex = 11;
             this.fatSubItem3PdvTextBox.Text = "99 %";
             // 
             // fatSubItem4PdvTextBox
@@ -342,7 +342,7 @@
             this.fatSubItem4PdvTextBox.Name = "fatSubItem4PdvTextBox";
             this.fatSubItem4PdvTextBox.ReadOnly = true;
             this.fatSubItem4PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.fatSubItem4PdvTextBox.TabIndex = 34;
+            this.fatSubItem4PdvTextBox.TabIndex = 13;
             this.fatSubItem4PdvTextBox.Text = "99 %";
             // 
             // fatSubItem2ValueTextBox
@@ -352,7 +352,7 @@
             this.fatSubItem2ValueTextBox.Name = "fatSubItem2ValueTextBox";
             this.fatSubItem2ValueTextBox.ReadOnly = true;
             this.fatSubItem2ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.fatSubItem2ValueTextBox.TabIndex = 28;
+            this.fatSubItem2ValueTextBox.TabIndex = 8;
             this.fatSubItem2ValueTextBox.Text = "99.9g";
             // 
             // fatSubItem1ValueTextBox
@@ -362,7 +362,7 @@
             this.fatSubItem1ValueTextBox.Name = "fatSubItem1ValueTextBox";
             this.fatSubItem1ValueTextBox.ReadOnly = true;
             this.fatSubItem1ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.fatSubItem1ValueTextBox.TabIndex = 27;
+            this.fatSubItem1ValueTextBox.TabIndex = 6;
             this.fatSubItem1ValueTextBox.Text = "99.9g";
             // 
             // fatSeparator3
@@ -396,7 +396,7 @@
             this.fatSubItem4LabelLabel.Location = new System.Drawing.Point(7, 106);
             this.fatSubItem4LabelLabel.Name = "fatSubItem4LabelLabel";
             this.fatSubItem4LabelLabel.Size = new System.Drawing.Size(126, 16);
-            this.fatSubItem4LabelLabel.TabIndex = 9;
+            this.fatSubItem4LabelLabel.TabIndex = 99;
             this.fatSubItem4LabelLabel.Text = "Monunsaturated Fat";
             // 
             // fatSubItem3LabelLabel
@@ -406,7 +406,7 @@
             this.fatSubItem3LabelLabel.Location = new System.Drawing.Point(6, 78);
             this.fatSubItem3LabelLabel.Name = "fatSubItem3LabelLabel";
             this.fatSubItem3LabelLabel.Size = new System.Drawing.Size(127, 16);
-            this.fatSubItem3LabelLabel.TabIndex = 6;
+            this.fatSubItem3LabelLabel.TabIndex = 99;
             this.fatSubItem3LabelLabel.Text = "Polyunsaturated Fat";
             // 
             // fatSubItem2LabelLabel
@@ -416,7 +416,7 @@
             this.fatSubItem2LabelLabel.Location = new System.Drawing.Point(68, 50);
             this.fatSubItem2LabelLabel.Name = "fatSubItem2LabelLabel";
             this.fatSubItem2LabelLabel.Size = new System.Drawing.Size(65, 16);
-            this.fatSubItem2LabelLabel.TabIndex = 3;
+            this.fatSubItem2LabelLabel.TabIndex = 99;
             this.fatSubItem2LabelLabel.Text = "Trans Fat";
             // 
             // fatSubItem1LabelLabel
@@ -426,7 +426,7 @@
             this.fatSubItem1LabelLabel.Location = new System.Drawing.Point(45, 22);
             this.fatSubItem1LabelLabel.Name = "fatSubItem1LabelLabel";
             this.fatSubItem1LabelLabel.Size = new System.Drawing.Size(88, 16);
-            this.fatSubItem1LabelLabel.TabIndex = 0;
+            this.fatSubItem1LabelLabel.TabIndex = 99;
             this.fatSubItem1LabelLabel.Text = "Saturated Fat";
             // 
             // cholesterolValueTextBox
@@ -436,7 +436,7 @@
             this.cholesterolValueTextBox.Name = "cholesterolValueTextBox";
             this.cholesterolValueTextBox.ReadOnly = true;
             this.cholesterolValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.cholesterolValueTextBox.TabIndex = 24;
+            this.cholesterolValueTextBox.TabIndex = 14;
             this.cholesterolValueTextBox.Text = "999 mg";
             // 
             // label7
@@ -446,7 +446,7 @@
             this.label7.Location = new System.Drawing.Point(44, 405);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 20);
-            this.label7.TabIndex = 23;
+            this.label7.TabIndex = 99;
             this.label7.Text = "Cholesterol:";
             // 
             // sodiumValueTextBox
@@ -456,7 +456,7 @@
             this.sodiumValueTextBox.Name = "sodiumValueTextBox";
             this.sodiumValueTextBox.ReadOnly = true;
             this.sodiumValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.sodiumValueTextBox.TabIndex = 26;
+            this.sodiumValueTextBox.TabIndex = 16;
             this.sodiumValueTextBox.Text = "9999 mg";
             // 
             // label8
@@ -466,7 +466,7 @@
             this.label8.Location = new System.Drawing.Point(70, 442);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 20);
-            this.label8.TabIndex = 25;
+            this.label8.TabIndex = 99;
             this.label8.Text = "Sodium:";
             // 
             // label9
@@ -484,7 +484,7 @@
             this.totalFatPdvTextBox.Name = "totalFatPdvTextBox";
             this.totalFatPdvTextBox.ReadOnly = true;
             this.totalFatPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.totalFatPdvTextBox.TabIndex = 28;
+            this.totalFatPdvTextBox.TabIndex = 5;
             this.totalFatPdvTextBox.Text = "99 %";
             // 
             // cholesterolPdvTextBox
@@ -494,7 +494,7 @@
             this.cholesterolPdvTextBox.Name = "cholesterolPdvTextBox";
             this.cholesterolPdvTextBox.ReadOnly = true;
             this.cholesterolPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.cholesterolPdvTextBox.TabIndex = 29;
+            this.cholesterolPdvTextBox.TabIndex = 15;
             this.cholesterolPdvTextBox.Text = "99 %";
             // 
             // sodiumPdvTextBox
@@ -504,7 +504,7 @@
             this.sodiumPdvTextBox.Name = "sodiumPdvTextBox";
             this.sodiumPdvTextBox.ReadOnly = true;
             this.sodiumPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.sodiumPdvTextBox.TabIndex = 30;
+            this.sodiumPdvTextBox.TabIndex = 17;
             this.sodiumPdvTextBox.Text = "99 %";
             // 
             // potassiumPdvTextBox
@@ -514,7 +514,7 @@
             this.potassiumPdvTextBox.Name = "potassiumPdvTextBox";
             this.potassiumPdvTextBox.ReadOnly = true;
             this.potassiumPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.potassiumPdvTextBox.TabIndex = 33;
+            this.potassiumPdvTextBox.TabIndex = 19;
             this.potassiumPdvTextBox.Text = "99 %";
             // 
             // potassiumValueTextBox
@@ -524,7 +524,7 @@
             this.potassiumValueTextBox.Name = "potassiumValueTextBox";
             this.potassiumValueTextBox.ReadOnly = true;
             this.potassiumValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.potassiumValueTextBox.TabIndex = 32;
+            this.potassiumValueTextBox.TabIndex = 18;
             this.potassiumValueTextBox.Text = "9999 mg";
             // 
             // label11
@@ -534,7 +534,7 @@
             this.label11.Location = new System.Drawing.Point(50, 479);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 20);
-            this.label11.TabIndex = 31;
+            this.label11.TabIndex = 99;
             this.label11.Text = "Potassium:";
             // 
             // totalCarbsPdvTextBox
@@ -544,7 +544,7 @@
             this.totalCarbsPdvTextBox.Name = "totalCarbsPdvTextBox";
             this.totalCarbsPdvTextBox.ReadOnly = true;
             this.totalCarbsPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.totalCarbsPdvTextBox.TabIndex = 36;
+            this.totalCarbsPdvTextBox.TabIndex = 21;
             this.totalCarbsPdvTextBox.Text = "99 %";
             // 
             // totalCarbsValueTextBox
@@ -554,7 +554,7 @@
             this.totalCarbsValueTextBox.Name = "totalCarbsValueTextBox";
             this.totalCarbsValueTextBox.ReadOnly = true;
             this.totalCarbsValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.totalCarbsValueTextBox.TabIndex = 35;
+            this.totalCarbsValueTextBox.TabIndex = 20;
             this.totalCarbsValueTextBox.Text = "999.9g";
             // 
             // label12
@@ -564,7 +564,7 @@
             this.label12.Location = new System.Drawing.Point(333, 153);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(156, 20);
-            this.label12.TabIndex = 34;
+            this.label12.TabIndex = 99;
             this.label12.Text = "Total Carbohydrates:";
             // 
             // groupBox1
@@ -588,7 +588,7 @@
             this.groupBox1.Location = new System.Drawing.Point(337, 183);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 135);
-            this.groupBox1.TabIndex = 37;
+            this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carbohydrates Sub-Items";
             // 
@@ -599,7 +599,7 @@
             this.carbsSubItem4LabelTextBox.Name = "carbsSubItem4LabelTextBox";
             this.carbsSubItem4LabelTextBox.ReadOnly = true;
             this.carbsSubItem4LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.carbsSubItem4LabelTextBox.TabIndex = 38;
+            this.carbsSubItem4LabelTextBox.TabIndex = 31;
             // 
             // carbsSubItem3LabelTextBox
             // 
@@ -608,7 +608,7 @@
             this.carbsSubItem3LabelTextBox.Name = "carbsSubItem3LabelTextBox";
             this.carbsSubItem3LabelTextBox.ReadOnly = true;
             this.carbsSubItem3LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.carbsSubItem3LabelTextBox.TabIndex = 37;
+            this.carbsSubItem3LabelTextBox.TabIndex = 28;
             // 
             // carbsSubItem2LabelTextBox
             // 
@@ -617,7 +617,7 @@
             this.carbsSubItem2LabelTextBox.Name = "carbsSubItem2LabelTextBox";
             this.carbsSubItem2LabelTextBox.ReadOnly = true;
             this.carbsSubItem2LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.carbsSubItem2LabelTextBox.TabIndex = 36;
+            this.carbsSubItem2LabelTextBox.TabIndex = 25;
             // 
             // carbsSubItem1LabelTextBox
             // 
@@ -626,7 +626,7 @@
             this.carbsSubItem1LabelTextBox.Name = "carbsSubItem1LabelTextBox";
             this.carbsSubItem1LabelTextBox.ReadOnly = true;
             this.carbsSubItem1LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.carbsSubItem1LabelTextBox.TabIndex = 35;
+            this.carbsSubItem1LabelTextBox.TabIndex = 22;
             // 
             // carbsSubItem4ValueTextBox
             // 
@@ -635,7 +635,7 @@
             this.carbsSubItem4ValueTextBox.Name = "carbsSubItem4ValueTextBox";
             this.carbsSubItem4ValueTextBox.ReadOnly = true;
             this.carbsSubItem4ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.carbsSubItem4ValueTextBox.TabIndex = 30;
+            this.carbsSubItem4ValueTextBox.TabIndex = 32;
             // 
             // carbsSubItem1PdvTextBox
             // 
@@ -644,7 +644,7 @@
             this.carbsSubItem1PdvTextBox.Name = "carbsSubItem1PdvTextBox";
             this.carbsSubItem1PdvTextBox.ReadOnly = true;
             this.carbsSubItem1PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.carbsSubItem1PdvTextBox.TabIndex = 31;
+            this.carbsSubItem1PdvTextBox.TabIndex = 24;
             this.carbsSubItem1PdvTextBox.Text = "99 %";
             // 
             // carbsSubItem3ValueTextBox
@@ -663,7 +663,7 @@
             this.carbsSubItem2PdvTextBox.Name = "carbsSubItem2PdvTextBox";
             this.carbsSubItem2PdvTextBox.ReadOnly = true;
             this.carbsSubItem2PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.carbsSubItem2PdvTextBox.TabIndex = 32;
+            this.carbsSubItem2PdvTextBox.TabIndex = 27;
             this.carbsSubItem2PdvTextBox.Text = "99 %";
             // 
             // carbsSubItem3PdvTextBox
@@ -673,7 +673,7 @@
             this.carbsSubItem3PdvTextBox.Name = "carbsSubItem3PdvTextBox";
             this.carbsSubItem3PdvTextBox.ReadOnly = true;
             this.carbsSubItem3PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.carbsSubItem3PdvTextBox.TabIndex = 33;
+            this.carbsSubItem3PdvTextBox.TabIndex = 30;
             this.carbsSubItem3PdvTextBox.Text = "99 %";
             // 
             // carbsSubItem4PdvTextBox
@@ -683,7 +683,7 @@
             this.carbsSubItem4PdvTextBox.Name = "carbsSubItem4PdvTextBox";
             this.carbsSubItem4PdvTextBox.ReadOnly = true;
             this.carbsSubItem4PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.carbsSubItem4PdvTextBox.TabIndex = 34;
+            this.carbsSubItem4PdvTextBox.TabIndex = 33;
             this.carbsSubItem4PdvTextBox.Text = "99 %";
             // 
             // carbsSubItem2ValueTextBox
@@ -693,7 +693,7 @@
             this.carbsSubItem2ValueTextBox.Name = "carbsSubItem2ValueTextBox";
             this.carbsSubItem2ValueTextBox.ReadOnly = true;
             this.carbsSubItem2ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.carbsSubItem2ValueTextBox.TabIndex = 28;
+            this.carbsSubItem2ValueTextBox.TabIndex = 26;
             // 
             // carbsSubItem1ValueTextBox
             // 
@@ -702,7 +702,7 @@
             this.carbsSubItem1ValueTextBox.Name = "carbsSubItem1ValueTextBox";
             this.carbsSubItem1ValueTextBox.ReadOnly = true;
             this.carbsSubItem1ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.carbsSubItem1ValueTextBox.TabIndex = 27;
+            this.carbsSubItem1ValueTextBox.TabIndex = 23;
             // 
             // label13
             // 
@@ -749,7 +749,7 @@
             this.groupBox2.Location = new System.Drawing.Point(337, 373);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(316, 130);
-            this.groupBox2.TabIndex = 38;
+            this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vitamins and Minerals";
             // 
@@ -760,7 +760,7 @@
             this.vitaminsSubItem4LabelTextBox.Name = "vitaminsSubItem4LabelTextBox";
             this.vitaminsSubItem4LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem4LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem4LabelTextBox.TabIndex = 38;
+            this.vitaminsSubItem4LabelTextBox.TabIndex = 45;
             // 
             // vitaminsSubItem3LabelTextBox
             // 
@@ -769,7 +769,7 @@
             this.vitaminsSubItem3LabelTextBox.Name = "vitaminsSubItem3LabelTextBox";
             this.vitaminsSubItem3LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem3LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem3LabelTextBox.TabIndex = 37;
+            this.vitaminsSubItem3LabelTextBox.TabIndex = 42;
             // 
             // vitaminsSubItem2LabelTextBox
             // 
@@ -778,7 +778,7 @@
             this.vitaminsSubItem2LabelTextBox.Name = "vitaminsSubItem2LabelTextBox";
             this.vitaminsSubItem2LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem2LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem2LabelTextBox.TabIndex = 36;
+            this.vitaminsSubItem2LabelTextBox.TabIndex = 39;
             // 
             // vitaminsSubItem1LabelTextBox
             // 
@@ -787,7 +787,7 @@
             this.vitaminsSubItem1LabelTextBox.Name = "vitaminsSubItem1LabelTextBox";
             this.vitaminsSubItem1LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem1LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem1LabelTextBox.TabIndex = 35;
+            this.vitaminsSubItem1LabelTextBox.TabIndex = 36;
             // 
             // vitaminsSubItem4ValueTextBox
             // 
@@ -796,7 +796,7 @@
             this.vitaminsSubItem4ValueTextBox.Name = "vitaminsSubItem4ValueTextBox";
             this.vitaminsSubItem4ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem4ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem4ValueTextBox.TabIndex = 30;
+            this.vitaminsSubItem4ValueTextBox.TabIndex = 46;
             // 
             // vitaminsSubItem1PdvTextBox
             // 
@@ -805,7 +805,7 @@
             this.vitaminsSubItem1PdvTextBox.Name = "vitaminsSubItem1PdvTextBox";
             this.vitaminsSubItem1PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem1PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem1PdvTextBox.TabIndex = 31;
+            this.vitaminsSubItem1PdvTextBox.TabIndex = 38;
             this.vitaminsSubItem1PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem3ValueTextBox
@@ -815,7 +815,7 @@
             this.vitaminsSubItem3ValueTextBox.Name = "vitaminsSubItem3ValueTextBox";
             this.vitaminsSubItem3ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem3ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem3ValueTextBox.TabIndex = 29;
+            this.vitaminsSubItem3ValueTextBox.TabIndex = 43;
             // 
             // vitaminsSubItem2PdvTextBox
             // 
@@ -824,7 +824,7 @@
             this.vitaminsSubItem2PdvTextBox.Name = "vitaminsSubItem2PdvTextBox";
             this.vitaminsSubItem2PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem2PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem2PdvTextBox.TabIndex = 32;
+            this.vitaminsSubItem2PdvTextBox.TabIndex = 41;
             this.vitaminsSubItem2PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem3PdvTextBox
@@ -834,7 +834,7 @@
             this.vitaminsSubItem3PdvTextBox.Name = "vitaminsSubItem3PdvTextBox";
             this.vitaminsSubItem3PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem3PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem3PdvTextBox.TabIndex = 33;
+            this.vitaminsSubItem3PdvTextBox.TabIndex = 44;
             this.vitaminsSubItem3PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem4PdvTextBox
@@ -844,7 +844,7 @@
             this.vitaminsSubItem4PdvTextBox.Name = "vitaminsSubItem4PdvTextBox";
             this.vitaminsSubItem4PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem4PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem4PdvTextBox.TabIndex = 34;
+            this.vitaminsSubItem4PdvTextBox.TabIndex = 47;
             this.vitaminsSubItem4PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem2ValueTextBox
@@ -854,7 +854,7 @@
             this.vitaminsSubItem2ValueTextBox.Name = "vitaminsSubItem2ValueTextBox";
             this.vitaminsSubItem2ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem2ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem2ValueTextBox.TabIndex = 28;
+            this.vitaminsSubItem2ValueTextBox.TabIndex = 40;
             // 
             // vitaminsSubItem1ValueTextBox
             // 
@@ -863,7 +863,7 @@
             this.vitaminsSubItem1ValueTextBox.Name = "vitaminsSubItem1ValueTextBox";
             this.vitaminsSubItem1ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem1ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem1ValueTextBox.TabIndex = 27;
+            this.vitaminsSubItem1ValueTextBox.TabIndex = 37;
             // 
             // label16
             // 
@@ -951,7 +951,7 @@
             this.vitaminsSubItem16LabelTextBox.Name = "vitaminsSubItem16LabelTextBox";
             this.vitaminsSubItem16LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem16LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem16LabelTextBox.TabIndex = 68;
+            this.vitaminsSubItem16LabelTextBox.TabIndex = 81;
             // 
             // vitaminsSubItem15LabelTextBox
             // 
@@ -960,7 +960,7 @@
             this.vitaminsSubItem15LabelTextBox.Name = "vitaminsSubItem15LabelTextBox";
             this.vitaminsSubItem15LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem15LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem15LabelTextBox.TabIndex = 67;
+            this.vitaminsSubItem15LabelTextBox.TabIndex = 78;
             // 
             // vitaminsSubItem14LabelTextBox
             // 
@@ -969,7 +969,7 @@
             this.vitaminsSubItem14LabelTextBox.Name = "vitaminsSubItem14LabelTextBox";
             this.vitaminsSubItem14LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem14LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem14LabelTextBox.TabIndex = 66;
+            this.vitaminsSubItem14LabelTextBox.TabIndex = 75;
             // 
             // vitaminsSubItem13LabelTextBox
             // 
@@ -978,7 +978,7 @@
             this.vitaminsSubItem13LabelTextBox.Name = "vitaminsSubItem13LabelTextBox";
             this.vitaminsSubItem13LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem13LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem13LabelTextBox.TabIndex = 65;
+            this.vitaminsSubItem13LabelTextBox.TabIndex = 72;
             // 
             // vitaminsSubItem16ValueTextBox
             // 
@@ -987,7 +987,7 @@
             this.vitaminsSubItem16ValueTextBox.Name = "vitaminsSubItem16ValueTextBox";
             this.vitaminsSubItem16ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem16ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem16ValueTextBox.TabIndex = 60;
+            this.vitaminsSubItem16ValueTextBox.TabIndex = 82;
             // 
             // vitaminsSubItem13PdvTextBox
             // 
@@ -996,7 +996,7 @@
             this.vitaminsSubItem13PdvTextBox.Name = "vitaminsSubItem13PdvTextBox";
             this.vitaminsSubItem13PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem13PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem13PdvTextBox.TabIndex = 61;
+            this.vitaminsSubItem13PdvTextBox.TabIndex = 74;
             this.vitaminsSubItem13PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem15ValueTextBox
@@ -1006,7 +1006,7 @@
             this.vitaminsSubItem15ValueTextBox.Name = "vitaminsSubItem15ValueTextBox";
             this.vitaminsSubItem15ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem15ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem15ValueTextBox.TabIndex = 59;
+            this.vitaminsSubItem15ValueTextBox.TabIndex = 79;
             // 
             // vitaminsSubItem14PdvTextBox
             // 
@@ -1015,7 +1015,7 @@
             this.vitaminsSubItem14PdvTextBox.Name = "vitaminsSubItem14PdvTextBox";
             this.vitaminsSubItem14PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem14PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem14PdvTextBox.TabIndex = 62;
+            this.vitaminsSubItem14PdvTextBox.TabIndex = 77;
             this.vitaminsSubItem14PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem15PdvTextBox
@@ -1025,7 +1025,7 @@
             this.vitaminsSubItem15PdvTextBox.Name = "vitaminsSubItem15PdvTextBox";
             this.vitaminsSubItem15PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem15PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem15PdvTextBox.TabIndex = 63;
+            this.vitaminsSubItem15PdvTextBox.TabIndex = 80;
             this.vitaminsSubItem15PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem16PdvTextBox
@@ -1035,7 +1035,7 @@
             this.vitaminsSubItem16PdvTextBox.Name = "vitaminsSubItem16PdvTextBox";
             this.vitaminsSubItem16PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem16PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem16PdvTextBox.TabIndex = 64;
+            this.vitaminsSubItem16PdvTextBox.TabIndex = 83;
             this.vitaminsSubItem16PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem14ValueTextBox
@@ -1045,7 +1045,7 @@
             this.vitaminsSubItem14ValueTextBox.Name = "vitaminsSubItem14ValueTextBox";
             this.vitaminsSubItem14ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem14ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem14ValueTextBox.TabIndex = 58;
+            this.vitaminsSubItem14ValueTextBox.TabIndex = 76;
             // 
             // vitaminsSubItem13ValueTextBox
             // 
@@ -1054,7 +1054,7 @@
             this.vitaminsSubItem13ValueTextBox.Name = "vitaminsSubItem13ValueTextBox";
             this.vitaminsSubItem13ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem13ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem13ValueTextBox.TabIndex = 57;
+            this.vitaminsSubItem13ValueTextBox.TabIndex = 73;
             // 
             // label25
             // 
@@ -1087,7 +1087,7 @@
             this.vitaminsSubItem12LabelTextBox.Name = "vitaminsSubItem12LabelTextBox";
             this.vitaminsSubItem12LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem12LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem12LabelTextBox.TabIndex = 53;
+            this.vitaminsSubItem12LabelTextBox.TabIndex = 69;
             // 
             // vitaminsSubItem11LabelTextBox
             // 
@@ -1096,7 +1096,7 @@
             this.vitaminsSubItem11LabelTextBox.Name = "vitaminsSubItem11LabelTextBox";
             this.vitaminsSubItem11LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem11LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem11LabelTextBox.TabIndex = 52;
+            this.vitaminsSubItem11LabelTextBox.TabIndex = 66;
             // 
             // vitaminsSubItem10LabelTextBox
             // 
@@ -1105,7 +1105,7 @@
             this.vitaminsSubItem10LabelTextBox.Name = "vitaminsSubItem10LabelTextBox";
             this.vitaminsSubItem10LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem10LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem10LabelTextBox.TabIndex = 51;
+            this.vitaminsSubItem10LabelTextBox.TabIndex = 63;
             // 
             // vitaminsSubItem9LabelTextBox
             // 
@@ -1114,7 +1114,7 @@
             this.vitaminsSubItem9LabelTextBox.Name = "vitaminsSubItem9LabelTextBox";
             this.vitaminsSubItem9LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem9LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem9LabelTextBox.TabIndex = 50;
+            this.vitaminsSubItem9LabelTextBox.TabIndex = 60;
             // 
             // vitaminsSubItem12ValueTextBox
             // 
@@ -1123,7 +1123,7 @@
             this.vitaminsSubItem12ValueTextBox.Name = "vitaminsSubItem12ValueTextBox";
             this.vitaminsSubItem12ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem12ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem12ValueTextBox.TabIndex = 45;
+            this.vitaminsSubItem12ValueTextBox.TabIndex = 70;
             // 
             // vitaminsSubItem9PdvTextBox
             // 
@@ -1132,7 +1132,7 @@
             this.vitaminsSubItem9PdvTextBox.Name = "vitaminsSubItem9PdvTextBox";
             this.vitaminsSubItem9PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem9PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem9PdvTextBox.TabIndex = 46;
+            this.vitaminsSubItem9PdvTextBox.TabIndex = 62;
             this.vitaminsSubItem9PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem11ValueTextBox
@@ -1142,7 +1142,7 @@
             this.vitaminsSubItem11ValueTextBox.Name = "vitaminsSubItem11ValueTextBox";
             this.vitaminsSubItem11ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem11ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem11ValueTextBox.TabIndex = 44;
+            this.vitaminsSubItem11ValueTextBox.TabIndex = 67;
             // 
             // vitaminsSubItem10PdvTextBox
             // 
@@ -1151,7 +1151,7 @@
             this.vitaminsSubItem10PdvTextBox.Name = "vitaminsSubItem10PdvTextBox";
             this.vitaminsSubItem10PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem10PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem10PdvTextBox.TabIndex = 47;
+            this.vitaminsSubItem10PdvTextBox.TabIndex = 65;
             this.vitaminsSubItem10PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem11PdvTextBox
@@ -1161,7 +1161,7 @@
             this.vitaminsSubItem11PdvTextBox.Name = "vitaminsSubItem11PdvTextBox";
             this.vitaminsSubItem11PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem11PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem11PdvTextBox.TabIndex = 48;
+            this.vitaminsSubItem11PdvTextBox.TabIndex = 68;
             this.vitaminsSubItem11PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem12PdvTextBox
@@ -1171,7 +1171,7 @@
             this.vitaminsSubItem12PdvTextBox.Name = "vitaminsSubItem12PdvTextBox";
             this.vitaminsSubItem12PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem12PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem12PdvTextBox.TabIndex = 49;
+            this.vitaminsSubItem12PdvTextBox.TabIndex = 71;
             this.vitaminsSubItem12PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem10ValueTextBox
@@ -1181,7 +1181,7 @@
             this.vitaminsSubItem10ValueTextBox.Name = "vitaminsSubItem10ValueTextBox";
             this.vitaminsSubItem10ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem10ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem10ValueTextBox.TabIndex = 43;
+            this.vitaminsSubItem10ValueTextBox.TabIndex = 64;
             // 
             // vitaminsSubItem9ValueTextBox
             // 
@@ -1190,7 +1190,7 @@
             this.vitaminsSubItem9ValueTextBox.Name = "vitaminsSubItem9ValueTextBox";
             this.vitaminsSubItem9ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem9ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem9ValueTextBox.TabIndex = 42;
+            this.vitaminsSubItem9ValueTextBox.TabIndex = 61;
             // 
             // label22
             // 
@@ -1223,7 +1223,7 @@
             this.vitaminsSubItem8LabelTextBox.Name = "vitaminsSubItem8LabelTextBox";
             this.vitaminsSubItem8LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem8LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem8LabelTextBox.TabIndex = 38;
+            this.vitaminsSubItem8LabelTextBox.TabIndex = 57;
             // 
             // vitaminsSubItem7LabelTextBox
             // 
@@ -1232,7 +1232,7 @@
             this.vitaminsSubItem7LabelTextBox.Name = "vitaminsSubItem7LabelTextBox";
             this.vitaminsSubItem7LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem7LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem7LabelTextBox.TabIndex = 37;
+            this.vitaminsSubItem7LabelTextBox.TabIndex = 54;
             // 
             // vitaminsSubItem6LabelTextBox
             // 
@@ -1241,7 +1241,7 @@
             this.vitaminsSubItem6LabelTextBox.Name = "vitaminsSubItem6LabelTextBox";
             this.vitaminsSubItem6LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem6LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem6LabelTextBox.TabIndex = 36;
+            this.vitaminsSubItem6LabelTextBox.TabIndex = 51;
             // 
             // vitaminsSubItem5LabelTextBox
             // 
@@ -1250,7 +1250,7 @@
             this.vitaminsSubItem5LabelTextBox.Name = "vitaminsSubItem5LabelTextBox";
             this.vitaminsSubItem5LabelTextBox.ReadOnly = true;
             this.vitaminsSubItem5LabelTextBox.Size = new System.Drawing.Size(124, 22);
-            this.vitaminsSubItem5LabelTextBox.TabIndex = 35;
+            this.vitaminsSubItem5LabelTextBox.TabIndex = 48;
             // 
             // vitaminsSubItem8ValueTextBox
             // 
@@ -1259,7 +1259,7 @@
             this.vitaminsSubItem8ValueTextBox.Name = "vitaminsSubItem8ValueTextBox";
             this.vitaminsSubItem8ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem8ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem8ValueTextBox.TabIndex = 30;
+            this.vitaminsSubItem8ValueTextBox.TabIndex = 58;
             // 
             // vitaminsSubItem5PdvTextBox
             // 
@@ -1268,7 +1268,7 @@
             this.vitaminsSubItem5PdvTextBox.Name = "vitaminsSubItem5PdvTextBox";
             this.vitaminsSubItem5PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem5PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem5PdvTextBox.TabIndex = 31;
+            this.vitaminsSubItem5PdvTextBox.TabIndex = 50;
             this.vitaminsSubItem5PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem7ValueTextBox
@@ -1278,7 +1278,7 @@
             this.vitaminsSubItem7ValueTextBox.Name = "vitaminsSubItem7ValueTextBox";
             this.vitaminsSubItem7ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem7ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem7ValueTextBox.TabIndex = 29;
+            this.vitaminsSubItem7ValueTextBox.TabIndex = 55;
             // 
             // vitaminsSubItem6PdvTextBox
             // 
@@ -1287,7 +1287,7 @@
             this.vitaminsSubItem6PdvTextBox.Name = "vitaminsSubItem6PdvTextBox";
             this.vitaminsSubItem6PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem6PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem6PdvTextBox.TabIndex = 32;
+            this.vitaminsSubItem6PdvTextBox.TabIndex = 53;
             this.vitaminsSubItem6PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem7PdvTextBox
@@ -1297,7 +1297,7 @@
             this.vitaminsSubItem7PdvTextBox.Name = "vitaminsSubItem7PdvTextBox";
             this.vitaminsSubItem7PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem7PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem7PdvTextBox.TabIndex = 33;
+            this.vitaminsSubItem7PdvTextBox.TabIndex = 56;
             this.vitaminsSubItem7PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem8PdvTextBox
@@ -1307,7 +1307,7 @@
             this.vitaminsSubItem8PdvTextBox.Name = "vitaminsSubItem8PdvTextBox";
             this.vitaminsSubItem8PdvTextBox.ReadOnly = true;
             this.vitaminsSubItem8PdvTextBox.Size = new System.Drawing.Size(46, 22);
-            this.vitaminsSubItem8PdvTextBox.TabIndex = 34;
+            this.vitaminsSubItem8PdvTextBox.TabIndex = 59;
             this.vitaminsSubItem8PdvTextBox.Text = "99 %";
             // 
             // vitaminsSubItem6ValueTextBox
@@ -1317,7 +1317,7 @@
             this.vitaminsSubItem6ValueTextBox.Name = "vitaminsSubItem6ValueTextBox";
             this.vitaminsSubItem6ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem6ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem6ValueTextBox.TabIndex = 28;
+            this.vitaminsSubItem6ValueTextBox.TabIndex = 52;
             // 
             // vitaminsSubItem5ValueTextBox
             // 
@@ -1326,7 +1326,7 @@
             this.vitaminsSubItem5ValueTextBox.Name = "vitaminsSubItem5ValueTextBox";
             this.vitaminsSubItem5ValueTextBox.ReadOnly = true;
             this.vitaminsSubItem5ValueTextBox.Size = new System.Drawing.Size(60, 22);
-            this.vitaminsSubItem5ValueTextBox.TabIndex = 27;
+            this.vitaminsSubItem5ValueTextBox.TabIndex = 49;
             // 
             // label19
             // 
@@ -1359,7 +1359,7 @@
             this.proteinPdvTextBox.Name = "proteinPdvTextBox";
             this.proteinPdvTextBox.ReadOnly = true;
             this.proteinPdvTextBox.Size = new System.Drawing.Size(60, 31);
-            this.proteinPdvTextBox.TabIndex = 42;
+            this.proteinPdvTextBox.TabIndex = 35;
             this.proteinPdvTextBox.Text = "99 %";
             // 
             // proteinValueTextBox
@@ -1369,7 +1369,7 @@
             this.proteinValueTextBox.Name = "proteinValueTextBox";
             this.proteinValueTextBox.ReadOnly = true;
             this.proteinValueTextBox.Size = new System.Drawing.Size(92, 31);
-            this.proteinValueTextBox.TabIndex = 41;
+            this.proteinValueTextBox.TabIndex = 34;
             this.proteinValueTextBox.Text = "999.9g";
             // 
             // label28
@@ -1379,7 +1379,7 @@
             this.label28.Location = new System.Drawing.Point(426, 336);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(63, 20);
-            this.label28.TabIndex = 40;
+            this.label28.TabIndex = 99;
             this.label28.Text = "Protein:";
             // 
             // lookupKey
@@ -1449,21 +1449,21 @@
             this.saveKey.UseVisualStyleBackColor = true;
             this.saveKey.Click += new System.EventHandler(this.saveKey_Click);
             // 
-            // resetKey
+            // cancelKey
             // 
-            this.resetKey.AutoSize = true;
-            this.resetKey.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resetKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.resetKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.resetKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetKey.Location = new System.Drawing.Point(653, 106);
-            this.resetKey.Name = "resetKey";
-            this.resetKey.Size = new System.Drawing.Size(69, 32);
-            this.resetKey.TabIndex = 48;
-            this.resetKey.Text = "Reset";
-            this.resetKey.UseVisualStyleBackColor = true;
-            this.resetKey.Click += new System.EventHandler(this.resetKey_Click);
+            this.cancelKey.AutoSize = true;
+            this.cancelKey.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cancelKey.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.cancelKey.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.cancelKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelKey.Location = new System.Drawing.Point(653, 106);
+            this.cancelKey.Name = "cancelKey";
+            this.cancelKey.Size = new System.Drawing.Size(76, 32);
+            this.cancelKey.TabIndex = 48;
+            this.cancelKey.Text = "Cancel";
+            this.cancelKey.UseVisualStyleBackColor = true;
+            this.cancelKey.Click += new System.EventHandler(this.resetKey_Click);
             // 
             // caloriesTextBox
             // 
@@ -1472,7 +1472,7 @@
             this.caloriesTextBox.Name = "caloriesTextBox";
             this.caloriesTextBox.ReadOnly = true;
             this.caloriesTextBox.Size = new System.Drawing.Size(158, 31);
-            this.caloriesTextBox.TabIndex = 49;
+            this.caloriesTextBox.TabIndex = 2;
             this.caloriesTextBox.Text = "1200";
             // 
             // fatCaloriesTextBox
@@ -1482,7 +1482,7 @@
             this.fatCaloriesTextBox.Name = "fatCaloriesTextBox";
             this.fatCaloriesTextBox.ReadOnly = true;
             this.fatCaloriesTextBox.Size = new System.Drawing.Size(158, 31);
-            this.fatCaloriesTextBox.TabIndex = 50;
+            this.fatCaloriesTextBox.TabIndex = 3;
             this.fatCaloriesTextBox.Text = "1200";
             // 
             // UserControlNutritionalInfoUi
@@ -1490,7 +1490,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.fatCaloriesTextBox);
             this.Controls.Add(this.caloriesTextBox);
-            this.Controls.Add(this.resetKey);
+            this.Controls.Add(this.cancelKey);
             this.Controls.Add(this.saveKey);
             this.Controls.Add(this.editKey);
             this.Controls.Add(this.label1);
@@ -1670,7 +1670,7 @@
         private System.Windows.Forms.TextBox lookupNameTextBox;
         private System.Windows.Forms.Button editKey;
         private System.Windows.Forms.Button saveKey;
-        private System.Windows.Forms.Button resetKey;
+        private System.Windows.Forms.Button cancelKey;
         private System.Windows.Forms.TextBox caloriesTextBox;
         private System.Windows.Forms.TextBox fatCaloriesTextBox;
     }

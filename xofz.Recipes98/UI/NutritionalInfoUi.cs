@@ -10,7 +10,10 @@
 
         event Action SaveKeyTapped;
 
-        event Action ResetKeyTapped;
+        event Action CancelKeyTapped;
+
+        // would the user ever want auto-save disabled?
+        // event Action<bool> AutoSaveToggled;
         
         NutritionalInfo Info { get; set; }
 
@@ -21,6 +24,10 @@
         bool EditKeyEnabled { get; set; }
 
         bool SaveKeyEnabled { get; set; }
+
+        bool CancelKeyEnabled { get; set; }
+
+        // bool LookupKeyEnabled { get; set; }
 
         bool Editable { get; set; }
     }

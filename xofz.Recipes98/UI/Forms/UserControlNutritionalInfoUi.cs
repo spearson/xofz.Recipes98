@@ -23,7 +23,7 @@
 
         public event Action SaveKeyTapped;
 
-        public event Action ResetKeyTapped;
+        public event Action CancelKeyTapped;
 
         NutritionalInfo NutritionalInfoUi.Info
         {
@@ -797,9 +797,15 @@
             set => this.saveKey.Enabled = value;
         }
 
+        bool NutritionalInfoUi.CancelKeyEnabled
+        {
+            get => this.cancelKey.Enabled;
+            set => this.cancelKey.Enabled = value;
+        }
+
         bool NutritionalInfoUi.Editable
         {
-            get => this.servingSizeTextBox.ReadOnly;
+            get => !this.servingSizeTextBox.ReadOnly;
 
             set
             {
@@ -833,7 +839,7 @@
 
         private void resetKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.ResetKeyTapped?.Invoke()).Start();
+            new Thread(() => this.CancelKeyTapped?.Invoke()).Start();
         }
 
         private void lookupNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
