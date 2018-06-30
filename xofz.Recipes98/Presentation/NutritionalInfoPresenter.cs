@@ -3,6 +3,7 @@
     using System;
     using System.Threading;
     using xofz.Framework;
+    using xofz.Framework.Logging;
     using xofz.Presentation;
     using xofz.Recipes98.Framework;
     using xofz.Recipes98.UI;
@@ -55,12 +56,16 @@
                 this.ui,
                 () => this.ui.Editable))
             {
-                var response = w.Run<Messenger, Response>(
-                    m => UiHelpers.Read(
+                var response = Response.No;
+                w.Run<Messenger>(m =>
+                {
+                    response = UiHelpers.Read(
                         m.Subscriber,
                         () => m.Question(
-                            "Discard current changes?")));
-                if (response == Response.No)
+                            "Discard current changes?"));
+                });
+
+                if (response != Response.Yes)
                 {
                     return;
                 }
@@ -82,41 +87,38 @@
                 this.ui,
                 () => this.ui.LookupRecipeName);
             var recipe = this.getRecipe(recipeName);
-
-            if (recipe != null)
+            if (recipe == null)
             {
-                UiHelpers.Write(
-                    this.ui,
-                    () =>
-                    {
-                        this.ui.MatchRecipeName = recipe.Name;
-                        this.ui.Info = recipe.NutritionalInfo;
-                        this.ui.EditKeyEnabled = true;
-                    });
+                return;
             }
+
+            var rn = recipe.Name;
+            var rNi = recipe.NutritionalInfo;
+            UiHelpers.Write(
+                this.ui,
+                () =>
+                {
+                    this.ui.MatchRecipeName = rn;
+                    this.ui.Info = rNi;
+                    this.ui.EditKeyEnabled = true;
+                });
         }
 
         private Recipe getRecipe(string name)
         {
             var w = this.web;
-            return w.Run<RecipeLoader, Recipe>(loader =>
+            var recipe = default(Recipe);
+            w.Run<RecipeLoader>(loader =>
             {
-                var recipes = loader.All();
-                Recipe match = null;
-                foreach (var r in recipes)
-                {
-                    if (string.Equals(
+                recipe = EnumerableHelpers.FirstOrDefault(
+                    loader.All(),
+                    r => string.Equals(
                         r.Name,
                         name,
-                        StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        match = r;
-                        break;
-                    }
-                }
-
-                return match;
+                        StringComparison.CurrentCultureIgnoreCase));
             });
+
+            return recipe;
         }
 
         private void ui_EditKeyTapped()
@@ -174,16 +176,23 @@
                 return;
             }
 
-            var rui = w.Run<Navigator, RecipesUi>(
-                n => n.GetUi<RecipesPresenter, RecipesUi>());
-            w.Run<EventRaiser>(er =>
+            w.Run<Navigator, EventRaiser>((n, er) =>
             {
-                er.Raise(rui, "SearchTextChanged");
+                var rUi = n.GetUi<RecipesPresenter, RecipesUi>();
+                er.Raise(
+                    rUi,
+                    nameof(rUi.SearchTextChanged));
             });
 
             w.Run<Messenger>(m =>
-                UiHelpers.Write(m.Subscriber, () =>
-                    m.Inform("Recipe updated!")));
+            {
+                UiHelpers.Write(
+                    m.Subscriber,
+                    () =>
+                    {
+                        m.Inform("Recipe updated!");
+                    });
+            });
 
             w.Run<LogEditor>(le => le.AddEntry(
                 "Information",

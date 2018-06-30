@@ -3,6 +3,7 @@
     using System;
     using System.Threading;
     using xofz.Framework;
+    using xofz.Framework.Logging;
     using xofz.Presentation;
     using xofz.Recipes98.Framework;
     using xofz.Recipes98.UI;
@@ -37,8 +38,10 @@
         private void ui_AddUpdateKeyTapped()
         {
             var w = this.web;
-            var recipe = UiHelpers.Read(this.ui, () => this.ui.RecipeToAddUpdate);
-            if (StringHelpers.NullOrWhiteSpace(recipe.Name))
+            var updatedRecipe = UiHelpers.Read(
+                this.ui,
+                () => this.ui.RecipeToAddUpdate);
+            if (StringHelpers.NullOrWhiteSpace(updatedRecipe.Name))
             {
                 w.Run<Messenger>(
                     m => UiHelpers.Write(
@@ -47,45 +50,70 @@
                 return;
             }
 
-            bool updated;
-            try
+            var recipe = this.getRecipe(updatedRecipe.Name);
+            if (recipe != null)
             {
-                updated = w.Run<RecipeSaver, bool>(saver => saver.Save(recipe));
+                recipe.Description = updatedRecipe.Description;
+                recipe.Ingredients = updatedRecipe.Ingredients;
+                recipe.Directions = updatedRecipe.Directions;
+                goto save;
             }
-            catch (ArgumentException)
+
+            recipe = updatedRecipe;
+
+            save:
+            bool? updated = null;
+            w.Run<RecipeSaver>(saver =>
             {
-                w.Run<Messenger>(m =>
-                    UiHelpers.Write(
-                        m.Subscriber,
-                        () => m.GiveError("Please enter a valid file name" +
-                                          " for the recipe name.")));
+                try
+                {
+                    updated = saver.Save(recipe);
+                }
+                catch (ArgumentException)
+                {
+                    w.Run<Messenger>(m =>
+                        UiHelpers.Write(
+                            m.Subscriber,
+                            () => m.GiveError("Please enter a valid file name" +
+                                              " for the recipe name.")));
+                }
+            });
+
+            if (updated == null)
+            {
                 return;
             }
 
             this.resetRecipe();
-            this.ui.WriteFinished.WaitOne();
-
+            var u = updated.Value;
             w.Run<Messenger>(m =>
-                UiHelpers.Write(m.Subscriber, () =>
-                    m.Inform(
-                        updated
-                            ? "Recipe updated!"
-                            : "Recipe added!")));
+            {
+                UiHelpers.Write(
+                    m.Subscriber,
+                    () =>
+                    {
+                        m.Inform(
+                            u
+                                ? "Recipe updated!"
+                                : "Recipe added!");
+                    });
+            });
 
             w.Run<LogEditor>(le => le.AddEntry(
                 "Information",
                 new[]
                 {
-                    updated
-                        ? "A recipe was updated: " + recipe.Name
-                        : "A new recipe was added: " + recipe.Name
+                    u
+                        ? "A recipe was updated: " + updatedRecipe.Name
+                        : "A new recipe was added: " + updatedRecipe.Name
                 }));
 
-            var rui = w.Run<Navigator, RecipesUi>(
-                n => n.GetUi<RecipesPresenter, RecipesUi>());
-            w.Run<EventRaiser>(er =>
+            w.Run<Navigator, EventRaiser>((n, er) =>
             {
-                er.Raise(rui, "SearchTextChanged");
+                var rUi = n.GetUi<RecipesPresenter, RecipesUi>();
+                er.Raise(
+                    rUi,
+                    nameof(rUi.SearchTextChanged));
             });
         }
 
@@ -111,8 +139,10 @@
         {
             var w = this.web;
 
-            var recipeName = UiHelpers.Read(this.ui, () => this.ui.RecipeToAddUpdate.Name);
-            var recipe = w.Run<RecipeLoader, Recipe>(loader =>
+            var recipeName = UiHelpers.Read(
+                this.ui, 
+                () => this.ui.RecipeToAddUpdate.Name);
+            w.Run<RecipeLoader>(loader =>
             {
                 var recipes = loader.All();
                 Recipe match = null;
@@ -128,18 +158,39 @@
                     }
                 }
 
-                return match;
+                if (match != null)
+                {
+                    UiHelpers.Write(
+                        this.ui,
+                        () => this.ui.RecipeToAddUpdate = match);
+                }
             });
-
-            if (recipe != null)
-            {
-                UiHelpers.Write(this.ui, () => this.ui.RecipeToAddUpdate = recipe);
-            }
         }
 
         private void resetRecipe()
         {
-            UiHelpers.Write(this.ui, () => this.ui.RecipeToAddUpdate = new Recipe());
+            var recipe = new Recipe();
+            UiHelpers.Write(
+                this.ui, 
+                () => this.ui.RecipeToAddUpdate = recipe);
+            this.ui.WriteFinished.WaitOne();
+        }
+
+        private Recipe getRecipe(string name)
+        {
+            var w = this.web;
+            var recipe = default(Recipe);
+            w.Run<RecipeLoader>(loader =>
+            {
+                recipe = EnumerableHelpers.FirstOrDefault(
+                    loader.All(),
+                    r => string.Equals(
+                        r.Name,
+                        name,
+                        StringComparison.CurrentCultureIgnoreCase));
+            });
+
+            return recipe;
         }
 
         private int setupIf1;

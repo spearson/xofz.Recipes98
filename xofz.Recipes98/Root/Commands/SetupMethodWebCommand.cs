@@ -1,22 +1,27 @@
 ﻿namespace xofz.Recipes98.Root.Commands
 {
     using xofz.Framework;
+    using xofz.Framework.Logging;
     using xofz.Presentation;
     using xofz.Root;
     using xofz.UI;
 
     public class SetupMethodWebCommand : Command
     {
-        public SetupMethodWebCommand(Messenger messenger)
+        public SetupMethodWebCommand(
+            Messenger messenger,
+            Func<MethodWeb> createWeb)
         {
             this.messenger = messenger;
+            this.createWeb = createWeb;
         }
 
         public virtual MethodWeb Web => this.web;
 
         public override void Execute()
         {
-            this.setWeb(new MethodWeb());
+            this.setWeb(this.createWeb());
+
             this.registerDependencies();
         }
 
@@ -31,9 +36,13 @@
             w.RegisterDependency(new Navigator(w));
             w.RegisterDependency(new EventRaiser());
             w.RegisterDependency(this.messenger);
+            w.RegisterDependency(
+                new TextFileLog("Exceptions.log"),
+                "Exceptions");
         }
 
         private MethodWeb web;
         private readonly Messenger messenger;
+        private readonly Func<MethodWeb> createWeb;
     }
 }

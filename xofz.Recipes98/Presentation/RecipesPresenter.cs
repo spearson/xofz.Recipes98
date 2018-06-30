@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Threading;
     using xofz.Framework;
+    using xofz.Framework.Logging;
     using xofz.Framework.Materialization;
     using xofz.Presentation;
     using xofz.Recipes98.Framework;
@@ -46,15 +47,41 @@
         private void ui_OpenRequested(string recipeName)
         {
             var w = this.web;
-            var addUi = w.Run<Navigator, AddUpdateUi>(
-                n => n.GetUi<AddUpdatePresenter, AddUpdateUi>());
-            UiHelpers.Write(
-                addUi,
-                () => addUi.RecipeToAddUpdate
-                    = new Recipe(recipeName));
-            w.Run<EventRaiser>(er => er.Raise(addUi, "LookupKeyTapped"));
-
+            this.pingOtherPresenters(recipeName);
             w.Run<Navigator>(n => n.Present<AddUpdatePresenter>());
+        }
+
+        private void ui_NutlInfoRequested(string recipeName)
+        {
+            var w = this.web;
+            this.pingOtherPresenters(recipeName);
+            w.Run<Navigator>(n => n.Present<NutritionalInfoPresenter>());
+        }
+
+        private void pingOtherPresenters(string recipeName)
+        {
+            var w = this.web;
+            w.Run<Navigator, EventRaiser>((n, er) =>
+            {
+                var addUi = n.GetUi<AddUpdatePresenter, AddUpdateUi>();
+                var recipe = new Recipe(recipeName);
+
+                UiHelpers.Write(
+                    addUi,
+                    () => addUi.RecipeToAddUpdate = recipe);
+                addUi.WriteFinished.WaitOne();
+                er.Raise(
+                    addUi,
+                    nameof(addUi.LookupKeyTapped));
+
+                var niUi = n.GetUi<NutritionalInfoPresenter,
+                    NutritionalInfoUi>();
+                UiHelpers.Write(
+                    niUi,
+                    () => niUi.LookupRecipeName = recipeName);
+                niUi.WriteFinished.WaitOne();
+                er.Raise(niUi, nameof(niUi.LookupKeyTapped));
+            });
         }
 
         private void ui_DeleteRequested(string recipeName)
@@ -83,20 +110,6 @@
             }
         }
 
-        private void ui_NutlInfoRequested(string recipeName)
-        {
-            var w = this.web;
-            var nutlInfoUi = w.Run<Navigator, NutritionalInfoUi>(
-                n => n.GetUi<NutritionalInfoPresenter, NutritionalInfoUi>());
-            UiHelpers.Write(
-                nutlInfoUi,
-                () => nutlInfoUi.LookupRecipeName
-                    = recipeName);
-            w.Run<EventRaiser>(er => er.Raise(nutlInfoUi, "LookupKeyTapped"));
-
-            w.Run<Navigator>(n => n.Present<NutritionalInfoPresenter>());
-        }
-
         private void ui_ClearSearchKeyTapped()
         {
             UiHelpers.Write(this.ui, () =>
@@ -115,10 +128,6 @@
             var dest = UiHelpers.Read(this.ui, () => this.ui.DescriptionSearchText);
             var ingst = UiHelpers.Read(this.ui, () => this.ui.IngredientsSearchText);
             var dist = UiHelpers.Read(this.ui, () => this.ui.DirectionsSearchText);
-
-
-            var allRecipes = w.Run<RecipeLoader, IEnumerable<Recipe>>(loader => loader.All());
-            var matches = new LinkedList<Recipe>();
             var filledIngredients = new LinkedList<string>();
             var filledDirections = new LinkedList<string>();
             foreach (var ingString in ingst)
@@ -137,93 +146,101 @@
                 }
             }
 
-            foreach (var recipe in allRecipes)
+            var matches = new LinkedList<Recipe>();
+            w.Run<RecipeLoader>(loader =>
             {
-                bool match = true;
-                if (!StringHelpers.NullOrWhiteSpace(nst))
-                {
-                    if(!recipe.Name.ToLowerInvariant()
-                        .Contains(nst.ToLowerInvariant()))
-                    {
-                        match = false;
-                    }
-                }
+                var allRecipes = loader.All();
+                foreach (var recipe in allRecipes)
 
-                if (!StringHelpers.NullOrWhiteSpace(dest))
                 {
-                    if (!recipe.Description
-                        .ToLowerInvariant()
-                        .Contains(dest.ToLowerInvariant()))
+                    bool match = true;
+                    if (!StringHelpers.NullOrWhiteSpace(nst))
                     {
-                        match = false;
-                    }
-                }
-
-                if (filledIngredients.Count > 0)
-                {
-                    var overallContains = true;
-                    foreach (var fi in filledIngredients)
-                    {
-                        var containsThisOne = false;
-                        foreach (var ri in recipe.Ingredients)
+                        if (!recipe.Name.ToLowerInvariant()
+                            .Contains(nst.ToLowerInvariant()))
                         {
-                            if (ri.ToLowerInvariant()
-                                .Contains(fi.ToLowerInvariant()))
+                            match = false;
+                        }
+                    }
+
+                    if (!StringHelpers.NullOrWhiteSpace(dest))
+                    {
+                        if (!recipe.Description
+                            .ToLowerInvariant()
+                            .Contains(dest.ToLowerInvariant()))
+                        {
+                            match = false;
+                        }
+                    }
+
+                    if (filledIngredients.Count > 0)
+                    {
+                        var overallContains = true;
+                        foreach (var fi in filledIngredients)
+                        {
+                            var containsThisOne = false;
+                            foreach (var ri in recipe.Ingredients)
                             {
-                                containsThisOne = true;
+                                if (ri.ToLowerInvariant()
+                                    .Contains(fi.ToLowerInvariant()))
+                                {
+                                    containsThisOne = true;
+                                }
+                            }
+
+                            if (!containsThisOne)
+                            {
+                                overallContains = false;
+                                break;
                             }
                         }
 
-                        if (!containsThisOne)
+                        if (!overallContains)
                         {
-                            overallContains = false;
-                            break;
+                            match = false;
                         }
                     }
 
-                    if (!overallContains)
+                    if (filledDirections.Count > 0)
                     {
-                        match = false;
-                    }
-                }
-
-                if (filledDirections.Count > 0)
-                {
-                    var overallContains = true;
-                    foreach (var fd in filledDirections)
-                    {
-                        var containsThisOne = false;
-                        foreach (var rd in recipe.Directions)
+                        var overallContains = true;
+                        foreach (var fd in filledDirections)
                         {
-                            if (rd.ToLowerInvariant()
-                                .Contains(fd.ToLowerInvariant()))
+                            var containsThisOne = false;
+                            foreach (var rd in recipe.Directions)
                             {
-                                containsThisOne = true;
+                                if (rd.ToLowerInvariant()
+                                    .Contains(fd.ToLowerInvariant()))
+                                {
+                                    containsThisOne = true;
+                                }
+                            }
+
+                            if (!containsThisOne)
+                            {
+                                overallContains = false;
+                                break;
                             }
                         }
 
-                        if (!containsThisOne)
+                        if (!overallContains)
                         {
-                            overallContains = false;
-                            break;
+                            match = false;
                         }
                     }
 
-                    if (!overallContains)
+                    if (match)
                     {
-                        match = false;
+                        matches.AddLast(recipe);
                     }
                 }
+            });
 
-                if (match)
-                {
-                    matches.AddLast(recipe);
-                }
-            }
-
+            var uiMatches = new LinkedListMaterializedEnumerable<Recipe>(
+                matches);
             UiHelpers.Write(
-                this.ui, () => this.ui.MatchingRecipes =
-                    new LinkedListMaterializedEnumerable<Recipe>(matches));
+                this.ui,
+                () => this.ui.MatchingRecipes = uiMatches);
         }
 
         private int setupIf1;

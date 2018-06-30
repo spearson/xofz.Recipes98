@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using xofz.Framework;
     using xofz.Framework.Materialization;
 
     public class RecipeManager : RecipeSaver, RecipeLoader
@@ -310,11 +309,78 @@
                 }
 
                 var indexOfFat = lines.Length;
+                var indexOfCholesterol = lines.Length;
+                var indexOfSodium = lines.Length;
+                var indexOfPotassium = lines.Length;
+                var indexOfCarbs = lines.Length;
+                var indexOfProtein = lines.Length;
+                var indexOfVitamins = lines.Length;
+
                 for (var i = start + 1; i < lines.Length; ++i)
                 {
                     if (lines[i] == "----Fat")
                     {
                         indexOfFat = i + 1;
+                        break;
+                    }
+                }
+
+                for (var i = indexOfFat + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Cholesterol")
+                    {
+                        indexOfCholesterol = i + 2;
+                        break;
+                    }
+                }
+                
+                for (var i = indexOfCholesterol + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Sodium")
+                    {
+                        indexOfSodium = i + 2;
+                        break;
+                    }
+                }
+                
+                for (var i = indexOfSodium + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Potassium")
+                    {
+                        indexOfPotassium = i + 2;
+                        break;
+                    }
+                }
+
+                for (var i = indexOfPotassium + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Carbohydrates")
+                    {
+                        indexOfCarbs = i + 2;
+                        break;
+                    }
+                }
+                
+                for (var i = indexOfCarbs + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Protein")
+                    {
+                        indexOfProtein = i + 2;
+                        break;
+                    }
+                }
+                
+                for (var i = indexOfProtein + 3; i < lines.Length - 1; ++i)
+                {
+                    if (lines[i] == string.Empty
+                        && lines[i + 1] == "----Vitamins and Minerals")
+                    {
+                        indexOfVitamins = i + 2;
                         break;
                     }
                 }
@@ -328,7 +394,7 @@
                     fat.PercentDailyValue = lines[indexOfFat + 2];
                     niStart = indexOfFat + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfCholesterol - 2)
                     {
                         var si = new NutritionItem(fat);
                         si.Label = lines[niStart];
@@ -343,17 +409,6 @@
                 }
                 nutlInfo.Fat = fat;
 
-                var indexOfCholesterol = lines.Length;
-                for (var i = indexOfFat + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Cholesterol")
-                    {
-                        indexOfCholesterol = i + 2;
-                        break;
-                    }
-                }
-
                 var chol = new NutritionItem();
                 if (indexOfCholesterol < lines.Length - 3)
                 {
@@ -362,7 +417,7 @@
                     chol.PercentDailyValue = lines[indexOfCholesterol + 2];
                     niStart = indexOfCholesterol + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfSodium - 2)
                     {
                         var si = new NutritionItem(chol);
                         si.Label = lines[niStart];
@@ -377,17 +432,6 @@
                 }
                 nutlInfo.Cholesterol = chol;
 
-                var indexOfSodium = lines.Length;
-                for (var i = indexOfCholesterol + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Sodium")
-                    {
-                        indexOfSodium = i + 2;
-                        break;
-                    }
-                }
-
                 var sodium = new NutritionItem();
                 if (indexOfSodium < lines.Length - 3)
                 {
@@ -396,7 +440,7 @@
                     sodium.PercentDailyValue = lines[indexOfSodium + 2];
                     niStart = indexOfSodium + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfPotassium - 2)
                     {
                         var si = new NutritionItem(sodium);
                         si.Label = lines[niStart];
@@ -411,17 +455,6 @@
                 }
                 nutlInfo.Sodium = sodium;
 
-                var indexOfPotassium = lines.Length;
-                for (var i = indexOfSodium + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Potassium")
-                    {
-                        indexOfPotassium = i + 2;
-                        break;
-                    }
-                }
-
                 var k = new NutritionItem();
                 if (indexOfPotassium < lines.Length - 3)
                 {
@@ -430,7 +463,7 @@
                     k.PercentDailyValue = lines[indexOfPotassium + 2];
                     niStart = indexOfPotassium + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfCarbs - 2)
                     {
                         var si = new NutritionItem(k);
                         si.Label = lines[niStart];
@@ -445,16 +478,7 @@
                 }
                 nutlInfo.Potassium = k;
 
-                var indexOfCarbs = lines.Length;
-                for (var i = indexOfPotassium + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Carbohydrates")
-                    {
-                        indexOfCarbs = i + 2;
-                        break;
-                    }
-                }
+
 
                 var carbs = new NutritionItem();
                 if (indexOfCarbs < lines.Length - 3)
@@ -464,7 +488,7 @@
                     carbs.PercentDailyValue = lines[indexOfCarbs + 2];
                     niStart = indexOfCarbs + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfProtein - 2)
                     {
                         var si = new NutritionItem(carbs);
                         si.Label = lines[niStart];
@@ -479,16 +503,7 @@
                 }
                 nutlInfo.Carbohydrates = carbs;
 
-                var indexOfProtein = lines.Length;
-                for (var i = indexOfCarbs + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Protein")
-                    {
-                        indexOfProtein = i + 2;
-                        break;
-                    }
-                }
+
 
                 var protein = new NutritionItem();
                 if (indexOfProtein < lines.Length - 3)
@@ -498,7 +513,7 @@
                     protein.PercentDailyValue = lines[indexOfProtein + 2];
                     niStart = indexOfProtein + 3;
                     var subItems = new LinkedList<NutritionItem>();
-                    while (niStart < lines.Length - 3)
+                    while (niStart < indexOfVitamins - 2)
                     {
                         var si = new NutritionItem(protein);
                         si.Label = lines[niStart];
@@ -511,18 +526,8 @@
                     protein.SubItems = new LinkedListMaterializedEnumerable<
                         NutritionItem>(subItems);
                 }
-                nutlInfo.Protein = protein;
 
-                var indexOfVitamins = lines.Length;
-                for (var i = indexOfProtein + 3; i < lines.Length - 1; ++i)
-                {
-                    if (lines[i] == string.Empty
-                        && lines[i + 1] == "----Vitamins and Minerals")
-                    {
-                        indexOfVitamins = i + 2;
-                        break;
-                    }
-                }
+                nutlInfo.Protein = protein;
 
                 var vitamins = new NutritionItem();
                 if (indexOfVitamins < lines.Length - 3)
