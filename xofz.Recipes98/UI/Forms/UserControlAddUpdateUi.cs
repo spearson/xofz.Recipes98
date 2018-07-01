@@ -36,8 +36,8 @@
             {
                 this.nameTextBox.Text = value?.Name;
                 this.descriptionTextBox.Text = value?.Description;
-                this.ingredientsTextBox.Lines = MEHelpers.ToArray(value?.Ingredients);
-                this.directionsTextBox.Lines = MEHelpers.ToArray(value?.Directions);
+                this.ingredientsTextBox.Lines = EnumerableHelpers.ToArray(value?.Ingredients);
+                this.directionsTextBox.Lines = EnumerableHelpers.ToArray(value?.Directions);
             }
         }
 

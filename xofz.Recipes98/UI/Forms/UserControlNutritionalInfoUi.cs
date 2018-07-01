@@ -810,7 +810,7 @@
             set
             {
                 foreach (var textBox in
-                    MEHelpers.PrivateFieldsOfType<TextBox>(this))
+                    EnumerableHelpers.PrivateFieldsOfType<TextBox>(this))
                 {
                     if (textBox.Name == "lookupNameTextBox")
                     {

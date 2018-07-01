@@ -59,7 +59,7 @@
             this.Controls.Add(this.screenPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormMainUi";
-            this.Text = "xofz.Recipes98";
+            this.Text = "X of Z Recipes98";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.this_FormClosing);
             this.ResumeLayout(false);
 

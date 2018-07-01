@@ -1,7 +1,7 @@
 ﻿namespace xofz.Recipes98.Root.Commands
 {
     using xofz.Framework;
-    using xofz.Framework.Logging;
+    using xofz.Framework.Logging.Logs;
     using xofz.Presentation;
     using xofz.Root;
     using xofz.UI;

@@ -44,14 +44,14 @@
         {
             get => this.materializer.Materialize(this.ingredientsSearchTextBox.Lines);
 
-            set => this.ingredientsSearchTextBox.Lines = MEHelpers.ToArray(value);
+            set => this.ingredientsSearchTextBox.Lines = EnumerableHelpers.ToArray(value);
         }
 
         MaterializedEnumerable<string> RecipesUi.DirectionsSearchText
         {
             get => this.materializer.Materialize(this.directionsSearchTextBox.Lines);
 
-            set => this.directionsSearchTextBox.Lines = MEHelpers.ToArray(value);
+            set => this.directionsSearchTextBox.Lines = EnumerableHelpers.ToArray(value);
         }
 
         MaterializedEnumerable<Recipe> RecipesUi.MatchingRecipes
@@ -87,10 +87,9 @@
                     rg.Rows.Add(
                         recipe.Name,
                         recipe.Description);
-                    var calories = (recipe
+                    var calories = recipe
                         .NutritionalInfo
-                        ?.Calories)
-                        ?.ToString();
+                        ?.Calories;
                     if (!StringHelpers.NullOrWhiteSpace(calories))
                     {
                         var c = rg.Rows[rg.Rows.Count - 2].Cells[3];
