@@ -824,29 +824,34 @@
 
         private void lookupKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.LookupKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.LookupKeyTapped?.Invoke());
         }
 
         private void editKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.EditKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.EditKeyTapped?.Invoke());
         }
 
         private void saveKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.SaveKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.SaveKeyTapped?.Invoke());
         }
 
         private void resetKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.CancelKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.CancelKeyTapped?.Invoke());
         }
 
         private void lookupNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                new Thread(() => this.LookupKeyTapped?.Invoke()).Start();
+                ThreadPool.QueueUserWorkItem(
+                    o => this.LookupKeyTapped?.Invoke());
             }
         }
 

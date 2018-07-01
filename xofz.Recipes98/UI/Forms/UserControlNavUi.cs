@@ -23,27 +23,32 @@
 
         private void recipesKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.RecipesKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.RecipesKeyTapped?.Invoke());
         }
 
         private void addKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.AddKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.AddKeyTapped?.Invoke());
         }
 
         private void nutlInfoKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.NutlInfoKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.NutlInfoKeyTapped?.Invoke());
         }
 
         private void logKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.LogKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.LogKeyTapped?.Invoke());
         }
 
         private void exitKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.ExitKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.ExitKeyTapped?.Invoke());
         }
     }
 }

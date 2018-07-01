@@ -104,30 +104,36 @@
 
         private void clearSearchKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.ClearSearchKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.ClearSearchKeyTapped?.Invoke());
         }
 
         private void nameSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            new Thread(() => this.SearchTextChanged?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.SearchTextChanged?.Invoke());
         }
 
         private void descriptionSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            new Thread(() => this.SearchTextChanged?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.SearchTextChanged?.Invoke());
         }
 
         private void ingredientsSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            new Thread(() => this.SearchTextChanged?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.SearchTextChanged?.Invoke());
         }
 
         private void directionsSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            new Thread(() => this.SearchTextChanged?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.SearchTextChanged?.Invoke());
         }
 
-        private void recipesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void recipesGrid_CellClick(object sender,
+            DataGridViewCellEventArgs e)
         {
             var rg = this.recipesGrid;
             if (rg.Columns[e.ColumnIndex] is DataGridViewButtonColumn
@@ -144,13 +150,16 @@
                 switch (buttonType)
                 {
                     case "Open":
-                        new Thread(() => this.OpenRequested?.Invoke(recipeName)).Start();
+                        ThreadPool.QueueUserWorkItem(
+                            o => this.OpenRequested?.Invoke(recipeName));
                         break;
                     case "Delete":
-                        new Thread(() => this.DeleteRequested?.Invoke(recipeName)).Start();
+                        ThreadPool.QueueUserWorkItem(
+                            o => this.DeleteRequested?.Invoke(recipeName));
                         break;
                     case "Nut.'l Info":
-                        new Thread(() => this.NutlInfoRequested?.Invoke(recipeName)).Start();
+                        ThreadPool.QueueUserWorkItem(
+                            o => this.NutlInfoRequested?.Invoke(recipeName));
                         break;
                 }
             }

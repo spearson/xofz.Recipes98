@@ -43,24 +43,28 @@
 
         private void resetKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.ResetKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.ResetKeyTapped?.Invoke());
         }
 
         private void addUpdateKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.AddUpdateKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.AddUpdateKeyTapped?.Invoke());
         }
 
         private void lookupKey_Click(object sender, EventArgs e)
         {
-            new Thread(() => this.LookupKeyTapped?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.LookupKeyTapped?.Invoke());
         }
 
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                new Thread(() => this.LookupKeyTapped?.Invoke()).Start();
+                ThreadPool.QueueUserWorkItem(
+                    o => this.LookupKeyTapped?.Invoke());
             }
         }
 

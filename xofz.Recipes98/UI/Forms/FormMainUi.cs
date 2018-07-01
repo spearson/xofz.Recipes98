@@ -29,7 +29,8 @@
         private void this_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
-            new Thread(() => this.ShutdownRequested?.Invoke()).Start();
+            ThreadPool.QueueUserWorkItem(
+                o => this.ShutdownRequested?.Invoke());
         }
     }
 }
