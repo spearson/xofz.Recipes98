@@ -4,16 +4,16 @@
 
     public interface NutritionalInfoUi : Ui
     {
-        event Action LookupKeyTapped;
+        event Do LookupKeyTapped;
 
-        event Action EditKeyTapped;
+        event Do EditKeyTapped;
 
-        event Action SaveKeyTapped;
+        event Do SaveKeyTapped;
 
-        event Action CancelKeyTapped;
+        event Do CancelKeyTapped;
 
         // would the user ever want auto-save disabled?
-        // event Action<bool> AutoSaveToggled;
+        // event Do<bool> AutoSaveToggled;
         
         NutritionalInfo Info { get; set; }
 

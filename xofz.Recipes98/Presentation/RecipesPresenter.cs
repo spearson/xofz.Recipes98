@@ -4,7 +4,7 @@
     using System.Threading;
     using xofz.Framework;
     using xofz.Framework.Logging;
-    using xofz.Framework.Materialization;
+    using xofz.Framework.Lots;
     using xofz.Presentation;
     using xofz.Recipes98.Framework;
     using xofz.Recipes98.UI;
@@ -38,7 +38,7 @@
             {
                 var recipes = loader.All();
                 UiHelpers.Write(this.ui, () => this.ui.MatchingRecipes
-                    = new LinkedListMaterializedEnumerable<Recipe>(recipes));
+                    = new LinkedListLot<Recipe>(recipes));
             });
 
             this.web.Run<Navigator>(n => n.RegisterPresenter(this));
@@ -66,20 +66,18 @@
                 var addUi = n.GetUi<AddUpdatePresenter, AddUpdateUi>();
                 var recipe = new Recipe(recipeName);
 
-                UiHelpers.Write(
+                UiHelpers.WriteSync(
                     addUi,
                     () => addUi.RecipeToAddUpdate = recipe);
-                addUi.WriteFinished.WaitOne();
                 er.Raise(
                     addUi,
                     nameof(addUi.LookupKeyTapped));
 
                 var niUi = n.GetUi<NutritionalInfoPresenter,
                     NutritionalInfoUi>();
-                UiHelpers.Write(
+                UiHelpers.WriteSync(
                     niUi,
                     () => niUi.LookupRecipeName = recipeName);
-                niUi.WriteFinished.WaitOne();
                 er.Raise(niUi, nameof(niUi.LookupKeyTapped));
             });
         }
@@ -90,11 +88,10 @@
             var response = Response.No;
             w.Run<Messenger>(m =>
             {
-                UiHelpers.Write(
+                response = UiHelpers.Read(
                     m.Subscriber,
-                    () => response = m.Question(
+                    () => m.Question(
                         "Really delete " + recipeName + "?"));
-                m.Subscriber.WriteFinished.WaitOne();
             });
 
             if (response == Response.Yes)
@@ -236,7 +233,7 @@
                 }
             });
 
-            var uiMatches = new LinkedListMaterializedEnumerable<Recipe>(
+            var uiMatches = new LinkedListLot<Recipe>(
                 matches);
             UiHelpers.Write(
                 this.ui,

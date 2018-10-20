@@ -8,7 +8,7 @@
     <Version>$(BUILD_NUMBER)</Version>
     <ProjectName>xofz.Recipes98</ProjectName>
     <BuildDir>$(ProjectName)\bin\Release</BuildDir>
-    <DeployFolder>C:\Dropbox\xofz.Apps\Recipes98\$(ProjectName)-$(Version)</DeployFolder>
+    <DeployFolder>H:\Dropbox\xofz.Apps\Recipes98\$(ProjectName)-$(Version)</DeployFolder>
   </PropertyGroup>
 
 
@@ -21,7 +21,7 @@
       AssemblyConfiguration=""
       AssemblyCompany="X of Z"
       AssemblyProduct="Recipes98"
-      AssemblyCopyright="Copyright (c) Sam Pearson"
+      AssemblyCopyright="Copyright (c) x(z)"
       AssemblyTrademark=""
       ComVisible="false"
       Guid="2d54ac5c-c76a-4892-8756-a746445024cd"

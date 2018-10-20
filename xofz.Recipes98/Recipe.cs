@@ -11,9 +11,9 @@
 
         public virtual string Description { get; set; }
 
-        public virtual MaterializedEnumerable<string> Ingredients { get; set; }
+        public virtual Lot<string> Ingredients { get; set; }
 
-        public virtual MaterializedEnumerable<string> Directions { get; set; }
+        public virtual Lot<string> Directions { get; set; }
 
         public virtual NutritionalInfo NutritionalInfo { get; set; }
 

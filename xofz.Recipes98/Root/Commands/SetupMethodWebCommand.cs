@@ -10,7 +10,7 @@
     {
         public SetupMethodWebCommand(
             Messenger messenger,
-            Func<MethodWeb> createWeb)
+            Gen<MethodWeb> createWeb)
         {
             this.messenger = messenger;
             this.createWeb = createWeb;
@@ -43,6 +43,6 @@
 
         private MethodWeb web;
         private readonly Messenger messenger;
-        private readonly Func<MethodWeb> createWeb;
+        private readonly Gen<MethodWeb> createWeb;
     }
 }

@@ -9,22 +9,22 @@
     public partial class UserControlRecipesUi : UserControlUi, RecipesUi
     {
         public UserControlRecipesUi(
-            Materializer materializer)
+            Lotter Lotter)
         {
-            this.materializer = materializer;
+            this.Lotter = Lotter;
 
             this.InitializeComponent();
         }
 
-        public event Action SearchTextChanged;
+        public event Do SearchTextChanged;
 
-        public event Action ClearSearchKeyTapped;
+        public event Do ClearSearchKeyTapped;
 
-        public event Action<string> OpenRequested;
+        public event Do<string> OpenRequested;
 
-        public event Action<string> NutlInfoRequested;
+        public event Do<string> NutlInfoRequested;
 
-        public event Action<string> DeleteRequested;
+        public event Do<string> DeleteRequested;
         
         string RecipesUi.NameSearchText
         {
@@ -40,25 +40,25 @@
             set => this.descriptionSearchTextBox.Text = value;
         }
 
-        MaterializedEnumerable<string> RecipesUi.IngredientsSearchText
+        Lot<string> RecipesUi.IngredientsSearchText
         {
-            get => this.materializer.Materialize(this.ingredientsSearchTextBox.Lines);
+            get => this.Lotter.Materialize(this.ingredientsSearchTextBox.Lines);
 
             set => this.ingredientsSearchTextBox.Lines = EnumerableHelpers.ToArray(value);
         }
 
-        MaterializedEnumerable<string> RecipesUi.DirectionsSearchText
+        Lot<string> RecipesUi.DirectionsSearchText
         {
-            get => this.materializer.Materialize(this.directionsSearchTextBox.Lines);
+            get => this.Lotter.Materialize(this.directionsSearchTextBox.Lines);
 
             set => this.directionsSearchTextBox.Lines = EnumerableHelpers.ToArray(value);
         }
 
-        MaterializedEnumerable<Recipe> RecipesUi.MatchingRecipes
+        Lot<Recipe> RecipesUi.MatchingRecipes
         {
             get
             {
-                var m = this.materializer;
+                var m = this.Lotter;
                 var ll = new LinkedList<Recipe>();
                 foreach (DataGridViewRow row in this.recipesGrid.Rows)
                 {
@@ -165,6 +165,6 @@
             }
         }
 
-        private readonly Materializer materializer;
+        private readonly Lotter Lotter;
     }
 }

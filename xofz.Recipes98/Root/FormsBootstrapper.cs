@@ -5,7 +5,7 @@
     using System.Windows.Forms;
     using xofz.Framework;
     using xofz.Framework.Logging;
-    using xofz.Framework.Materialization;
+    using xofz.Framework.Lotters;
     using xofz.Presentation;
     using xofz.Recipes98.Presentation;
     using xofz.Recipes98.Root.Commands;
@@ -63,30 +63,29 @@
                     w))
                 .Execute(new SetupAddUpdateCommand(
                     new UserControlAddUpdateUi(
-                        new LinkedListMaterializer()),
+                        new LinkedListLotter()),
                     s,
                     w))
                 .Execute(new SetupNutritionalInfoCommand(
                     new UserControlNutritionalInfoUi(
-                        new LinkedListMaterializer()),
+                        new LinkedListLotter()),
                     s,
                     w))
                 .Execute(new SetupRecipesCommand(
                     new UserControlRecipesUi(
-                        new LinkedListMaterializer()),
+                        new LinkedListLotter()),
                     s,
                     w))
                 .Execute(new SetupLogCommand(
-                    new UserControlLogUi(
-                        new LinkedListMaterializer()),
+                    new UserControlLogUi(),
                     s,
                     new FormLogEditorUi(
-                        s,
-                        new LinkedListMaterializer()),
+                        s),
                     new FormLogStatisticsUi(
                         s),
-                    w,
+                    w,                    
                     "Log.log",
+                    null,
                     AccessLevel.None,
                     AccessLevel.None,
                     false,

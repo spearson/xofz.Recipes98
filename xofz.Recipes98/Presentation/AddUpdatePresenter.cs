@@ -123,10 +123,9 @@
             var response = Response.No;
             w.Run<Messenger>(m =>
             {
-                UiHelpers.Write(
+                response = UiHelpers.Read(
                     m.Subscriber,
-                    () => response = m.Question("Really clear all fields?"));
-                m.Subscriber.WriteFinished.WaitOne();
+                    () => m.Question("Really clear all fields?"));
             });
 
             if (response == Response.Yes)
@@ -170,10 +169,9 @@
         private void resetRecipe()
         {
             var recipe = new Recipe();
-            UiHelpers.Write(
+            UiHelpers.WriteSync(
                 this.ui, 
                 () => this.ui.RecipeToAddUpdate = recipe);
-            this.ui.WriteFinished.WaitOne();
         }
 
         private Recipe getRecipe(string name)

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using xofz.Framework.Materialization;
+    using xofz.Framework.Lots;
 
     public class RecipeManager : RecipeSaver, RecipeLoader
     {
@@ -153,7 +153,7 @@
         {
             lines.Add("[Ingredients]");
             var ri = recipe.Ingredients;
-            if (ri != default(MaterializedEnumerable<string>))
+            if (ri != default(Lot<string>))
             {
                 lines.AddRange(ri);
             }
@@ -164,7 +164,7 @@
         {
             lines.Add("[Directions]");
             var rDi = recipe.Directions;
-            if (rDi != default(MaterializedEnumerable<string>))
+            if (rDi != default(Lot<string>))
             {
                 lines.AddRange(rDi);
             }
@@ -207,7 +207,7 @@
                 lines.Add(item.Value);
                 lines.Add(item.PercentDailyValue);
                 var subItems = item.SubItems;
-                if (subItems != default(MaterializedEnumerable<NutritionItem>))
+                if (subItems != default(Lot<NutritionItem>))
                 {
                     foreach (var si in subItems)
                     {
@@ -404,7 +404,7 @@
                         niStart += 3;
                     }
 
-                    fat.SubItems = new LinkedListMaterializedEnumerable<
+                    fat.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.Fat = fat;
@@ -427,7 +427,7 @@
                         niStart += 3;
                     }
 
-                    chol.SubItems = new LinkedListMaterializedEnumerable<
+                    chol.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.Cholesterol = chol;
@@ -450,7 +450,7 @@
                         niStart += 3;
                     }
 
-                    sodium.SubItems = new LinkedListMaterializedEnumerable<
+                    sodium.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.Sodium = sodium;
@@ -473,7 +473,7 @@
                         niStart += 3;
                     }
 
-                    k.SubItems = new LinkedListMaterializedEnumerable<
+                    k.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.Potassium = k;
@@ -498,7 +498,7 @@
                         niStart += 3;
                     }
 
-                    carbs.SubItems = new LinkedListMaterializedEnumerable<
+                    carbs.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.Carbohydrates = carbs;
@@ -523,7 +523,7 @@
                         niStart += 3;
                     }
 
-                    protein.SubItems = new LinkedListMaterializedEnumerable<
+                    protein.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
 
@@ -547,7 +547,7 @@
                         niStart += 3;
                     }
 
-                    vitamins.SubItems = new LinkedListMaterializedEnumerable<
+                    vitamins.SubItems = new LinkedListLot<
                         NutritionItem>(subItems);
                 }
                 nutlInfo.VitaminsAndMinerals = vitamins;
@@ -555,9 +555,9 @@
                 yield return new Recipe(name)
                 {
                     Description = description,
-                    Ingredients = new LinkedListMaterializedEnumerable<string>(
+                    Ingredients = new LinkedListLot<string>(
                         ingredients),
-                    Directions = new LinkedListMaterializedEnumerable<string>(
+                    Directions = new LinkedListLot<string>(
                         directions),
                     NutritionalInfo = nutlInfo
                 };

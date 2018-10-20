@@ -7,23 +7,23 @@
 
     public partial class UserControlAddUpdateUi : UserControlUi, AddUpdateUi
     {
-        public UserControlAddUpdateUi(Materializer materializer)
+        public UserControlAddUpdateUi(Lotter Lotter)
         {
-            this.materializer = materializer;
+            this.Lotter = Lotter;
             this.InitializeComponent();
         }
 
-        public event Action AddUpdateKeyTapped;
+        public event Do AddUpdateKeyTapped;
 
-        public event Action ResetKeyTapped;
+        public event Do ResetKeyTapped;
 
-        public event Action LookupKeyTapped;
+        public event Do LookupKeyTapped;
 
         Recipe AddUpdateUi.RecipeToAddUpdate
         {
             get
             {
-                var m = this.materializer;
+                var m = this.Lotter;
                 return new Recipe(this.nameTextBox.Text)
                 {
                     Description = this.descriptionTextBox.Text,
@@ -68,6 +68,6 @@
             }
         }
 
-        private readonly Materializer materializer;
+        private readonly Lotter Lotter;
     }
 }

@@ -11,15 +11,15 @@
             this.InitializeComponent();
         }
 
-        public event Action RecipesKeyTapped;
+        public event Do RecipesKeyTapped;
 
-        public event Action AddKeyTapped;
+        public event Do AddKeyTapped;
 
-        public event Action NutlInfoKeyTapped;
+        public event Do NutlInfoKeyTapped;
 
-        public event Action LogKeyTapped;
+        public event Do LogKeyTapped;
 
-        public event Action ExitKeyTapped;
+        public event Do ExitKeyTapped;
 
         private void recipesKey_Click(object sender, EventArgs e)
         {

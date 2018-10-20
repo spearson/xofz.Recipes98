@@ -5,24 +5,24 @@
 
     public interface RecipesUi : Ui
     {
-        event Action SearchTextChanged;
+        event Do SearchTextChanged;
 
-        event Action ClearSearchKeyTapped;
+        event Do ClearSearchKeyTapped;
 
-        event Action<string> OpenRequested;
+        event Do<string> OpenRequested;
 
-        event Action<string> NutlInfoRequested;
+        event Do<string> NutlInfoRequested;
 
-        event Action<string> DeleteRequested;
+        event Do<string> DeleteRequested;
 
         string NameSearchText { get; set; }
 
         string DescriptionSearchText { get; set; }
 
-        MaterializedEnumerable<string> IngredientsSearchText { get; set; }
+        Lot<string> IngredientsSearchText { get; set; }
 
-        MaterializedEnumerable<string> DirectionsSearchText { get; set; }
+        Lot<string> DirectionsSearchText { get; set; }
 
-        MaterializedEnumerable<Recipe> MatchingRecipes { get; set; }
+        Lot<Recipe> MatchingRecipes { get; set; }
     }
 }

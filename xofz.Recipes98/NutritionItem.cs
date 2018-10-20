@@ -28,18 +28,18 @@
 
         public virtual string PercentDailyValue { get; set; }
 
-        public virtual MaterializedEnumerable<NutritionItem> SubItems
+        public virtual Lot<NutritionItem> SubItems
         {
             get => this.subItems;
 
             set
             {
-                if (value != default(MaterializedEnumerable<NutritionItem>))
+                if (value != default(Lot<NutritionItem>))
                 {
                     foreach (var subItem in value)
                     {
                         if (subItem.subItems !=
-                            default(MaterializedEnumerable<NutritionItem>))
+                            default(Lot<NutritionItem>))
                         {
                             throw new InvalidOperationException(
                                 "A NutritionItem may only have one set of sub-items."
@@ -54,7 +54,7 @@
             }
         }
 
-        private MaterializedEnumerable<NutritionItem> subItems;
+        private Lot<NutritionItem> subItems;
         private readonly NutritionItem parent;
     }
 }

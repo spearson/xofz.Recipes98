@@ -12,7 +12,7 @@
             this.InitializeComponent();
         }
 
-        public event Action ShutdownRequested;
+        public event Do ShutdownRequested;
 
         public virtual NavUi NavUi => this.navUi;
 

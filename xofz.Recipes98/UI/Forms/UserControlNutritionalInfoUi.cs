@@ -8,22 +8,22 @@
 
     public partial class UserControlNutritionalInfoUi : UserControlUi, NutritionalInfoUi
     {
-        public UserControlNutritionalInfoUi(Materializer materializer)
+        public UserControlNutritionalInfoUi(Lotter Lotter)
         {
-            this.materializer = materializer;
+            this.Lotter = Lotter;
 
             this.InitializeComponent();
 
             var h = this.Handle;
         }
 
-        public event Action LookupKeyTapped;
+        public event Do LookupKeyTapped;
 
-        public event Action EditKeyTapped;
+        public event Do EditKeyTapped;
 
-        public event Action SaveKeyTapped;
+        public event Do SaveKeyTapped;
 
-        public event Action CancelKeyTapped;
+        public event Do CancelKeyTapped;
 
         NutritionalInfo NutritionalInfoUi.Info
         {
@@ -95,7 +95,7 @@
                 },
             };
 
-            info.Fat.SubItems = this.materializer.Materialize(subItems);
+            info.Fat.SubItems = this.Lotter.Materialize(subItems);
         }
 
         private void getCholesterol(NutritionalInfo info)
@@ -160,7 +160,7 @@
             };
 
             info.Carbohydrates.SubItems 
-                = this.materializer.Materialize(subItems);
+                = this.Lotter.Materialize(subItems);
         }
 
         private void getProtein(NutritionalInfo info)
@@ -275,7 +275,7 @@
             };
 
             info.VitaminsAndMinerals.SubItems
-                = this.materializer.Materialize(subItems);
+                = this.Lotter.Materialize(subItems);
         }
 
         private void setFat(NutritionalInfo info)
@@ -289,7 +289,7 @@
             this.totalFatValueTextBox.Text = info.Fat?.Value;
             this.totalFatPdvTextBox.Text = info.Fat?.PercentDailyValue;
             if (info.Fat?.SubItems 
-                == default(MaterializedEnumerable<NutritionItem>))
+                == default(Lot<NutritionItem>))
             {
                 return;
             }
@@ -406,7 +406,7 @@
             this.totalCarbsPdvTextBox.Text 
                 = info.Carbohydrates?.PercentDailyValue;
             if (info.Carbohydrates?.SubItems
-                == default(MaterializedEnumerable<NutritionItem>))
+                == default(Lot<NutritionItem>))
             {
                 return;
             }
@@ -498,7 +498,7 @@
             }
 
             if (info.VitaminsAndMinerals?.SubItems
-                == default(MaterializedEnumerable<NutritionItem>))
+                == default(Lot<NutritionItem>))
             {
                 return;
             }
@@ -855,6 +855,6 @@
             }
         }
 
-        private readonly Materializer materializer;
+        private readonly Lotter Lotter;
     }
 }

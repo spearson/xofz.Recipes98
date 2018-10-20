@@ -4,14 +4,14 @@
 
     public interface NavUi : Ui
     {
-        event Action RecipesKeyTapped;
+        event Do RecipesKeyTapped;
 
-        event Action AddKeyTapped;
+        event Do AddKeyTapped;
 
-        event Action NutlInfoKeyTapped;
+        event Do NutlInfoKeyTapped;
 
-        event Action LogKeyTapped;
+        event Do LogKeyTapped;
 
-        event Action ExitKeyTapped;
+        event Do ExitKeyTapped;
     }
 }

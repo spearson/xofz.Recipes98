@@ -32,7 +32,7 @@
             this.ui.EditKeyTapped += this.ui_EditKeyTapped;
             this.ui.SaveKeyTapped += this.ui_SaveKeyTapped;
             this.ui.CancelKeyTapped += this.ui_CancelKeyTapped;
-            UiHelpers.Write(
+            UiHelpers.WriteSync(
                 this.ui,
                 () =>
                 {
@@ -42,7 +42,6 @@
                     this.ui.Editable = false;
                     this.ui.Info = null;
                 });
-            this.ui.WriteFinished.WaitOne();
 
             var w = this.web;
             w.Run<Navigator>(
@@ -226,10 +225,9 @@
             var response = Response.No;
             w.Run<Messenger>(m =>
             {
-                UiHelpers.Write(
+                response = UiHelpers.Read(
                     m.Subscriber,
-                    () => response = m.Question("Discard current changes?"));
-                m.Subscriber.WriteFinished.WaitOne();
+                    () => m.Question("Discard current changes?"));
             });
 
             if (response == Response.Yes)

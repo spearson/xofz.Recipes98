@@ -36,7 +36,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="xofz.Core98">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Dropbox\Libraries\xofz.Core98\xofz.Core98.dll</HintPath>
+      <HintPath>H:\Dropbox\Libraries\xofz.Core98\xofz.Core98.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

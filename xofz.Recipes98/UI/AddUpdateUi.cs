@@ -4,11 +4,11 @@
 
     public interface AddUpdateUi : Ui
     {
-        event Action AddUpdateKeyTapped;
+        event Do AddUpdateKeyTapped;
 
-        event Action ResetKeyTapped;
+        event Do ResetKeyTapped;
 
-        event Action LookupKeyTapped;
+        event Do LookupKeyTapped;
 
         Recipe RecipeToAddUpdate { get; set; }
     }
